@@ -21,6 +21,7 @@ function RecipeList() {
                         <p>{recipe.description}</p>
                         <p>Antal ingredienser: {recipe.ingredients.length}</p>
                         <p>Tid: {recipe.timeInMins} min</p>
+                        <p>Betyg: {recipe.avgRating}</p>
                     </div>
                 ))}
             </div>
