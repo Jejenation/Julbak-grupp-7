@@ -1,9 +1,10 @@
 import RecipeList from './components/RecipeList'
+import Homepage from './components/Homepage'
 import './App.css'
 
 function App() {
   return (
-    <RecipeList/>
+    <Homepage/>
   )
 }
 
