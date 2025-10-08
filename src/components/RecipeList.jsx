@@ -18,10 +18,8 @@ function RecipeList() {
                     <div key={recipe._id} className="recipe-card">
                         <h3>{recipe.title}</h3>
                         <img src={recipe.imageUrl} alt={recipe.title} /> {/*Have to replace the placeholder Urls in database */}
-                        <p>{recipe.description}</p>
-                        <p>Antal ingredienser: {recipe.ingredients.length}</p>
-                        <p>Tid: {recipe.timeInMins} min</p>
                         <p>Betyg: {recipe.avgRating}</p>
+                        <p>Tid: {recipe.timeInMins} min</p>
                     </div>
                 ))}
             </div>
