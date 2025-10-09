@@ -19,8 +19,8 @@ function RecipeList() {
                         <img src={recipe.imageUrl} alt={recipe.title} /> {/*Have to replace the placeholder Urls in database */}
                         <h3>{recipe.title}</h3>
                         <p className="recipe-rating">Betyg: {recipe.avgRating}</p>
-                        <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
                         <p className="recipe-difficulty">Svårighetsgrad: {calculateDifficulty(recipe.price)}</p>
+                        <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
                     </div>
                 ))}
             </div>
