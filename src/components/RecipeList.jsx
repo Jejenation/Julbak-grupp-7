@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllRecipes } from "../services/recipeService";
+import { calculateDifficulty, getAllRecipes } from "../services/recipeService";
 import './RecipeList.css'
 
 function RecipeList() {
@@ -20,6 +20,7 @@ function RecipeList() {
                         <h3>{recipe.title}</h3>
                         <p className="recipe-rating">Betyg: {recipe.avgRating}</p>
                         <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
+                        <p className="recipe-difficulty">Svårighetsgrad: {calculateDifficulty(recipe.price)}</p>
                     </div>
                 ))}
             </div>
