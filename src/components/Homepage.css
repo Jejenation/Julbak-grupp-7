@@ -34,14 +34,6 @@ nav a {
     margin-left: auto;
 }
 
-
-.hero-placeholder {
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .category-placeholder {
     height: 100px;
     display: flex;
