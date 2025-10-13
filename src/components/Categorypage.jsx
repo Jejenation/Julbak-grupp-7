@@ -28,7 +28,6 @@ function Categorypage() {
                     <h2>Julgodis</h2>
                 </a>
             </div>
-
         </div>
     )
 }
