@@ -46,7 +46,13 @@ nav a {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.category-placeholder > a {
+    text-decoration: none;
+    color: black;
 }
 
 
