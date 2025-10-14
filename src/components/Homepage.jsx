@@ -19,7 +19,7 @@ function Homepage () {
 
             
             {/*Hero section here */}
-            <div className="hero-placeholder">
+            <div className="hero-section">
                 <HeroSection />
             </div>
 
