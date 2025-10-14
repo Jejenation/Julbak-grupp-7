@@ -1,0 +1,49 @@
+.recipe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #FFF9F0;
+    border-bottom: 1px solid #E8DCC9;
+    font-family: 'Inter', sans-serif;
+    color: #2E1A07;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.site-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #3A1E0A;
+}
+
+.menu {
+    display: flex;
+    gap: 1.5rem;
+}
+.menu-item {
+    cursor: pointer;
+    color: #7A5D48;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.menu-item:hover {
+    color: #D66B00;
+}
+
+.menu-item.active {
+    color: #D66B00;
+    font-weight: 700;
+    border-bottom: 2px solid #D66B00;
+    padding-bottom: 3px;
+}
+
+body {
+    background-color: #FFF9F0;
+}
