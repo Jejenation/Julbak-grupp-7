@@ -1,5 +1,5 @@
-//import { useState } from "react";
-import RecipeList from "./RecipeList";
+import RecipeList from "./RecipeList"
+import HeroSection from "./Herosection";
 import './Homepage.css'
 
 
@@ -19,8 +19,8 @@ function Homepage () {
 
             
             {/*Hero section here */}
-            <div className="hero-placeholder">
-                Hero Section (Coming soon :D)
+            <div className="hero-section">
+                <HeroSection />
             </div>
 
             {/*Category here */}
