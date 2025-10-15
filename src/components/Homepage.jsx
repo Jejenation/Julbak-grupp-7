@@ -25,7 +25,9 @@ function Homepage () {
 
             {/*Category here */}
             <div className="category-placeholder">
-                Categories (Coming soon :D)
+                <a href="/bullar"><h2>Bullar</h2></a>
+                <a href="/kakor"><h2>Kakor</h2></a>
+                <a href="/julgodis"><h2>Julgodis</h2></a>
             </div>
 
             {/* change for recipe cards*/}
