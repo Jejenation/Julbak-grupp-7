@@ -10,3 +10,4 @@ export const getRecipeWithCategory = async (categoryName) => {
     const res = await fetch (`${API_BASE_URL}/categories/${categoryName}/recipes`)
     return res.json();
 }
+
