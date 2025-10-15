@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { getAllRecipes } from "../services/recipeService";
+import { calculateDifficulty, getAllRecipes } from "../services/recipeService";
+import './RecipeList.css'
 
 function RecipeList() {
     const [recipes, setRecipes] = useState([]);
@@ -12,14 +13,14 @@ function RecipeList() {
 
     return (
         <div>
-            <h1>Våra recept</h1>
             <div className="recipe-grid">
                 {recipes.map(recipe => (
                     <div key={recipe._id} className="recipe-card">
-                        <h3>{recipe.title}</h3>
                         <img src={recipe.imageUrl} alt={recipe.title} /> {/*Have to replace the placeholder Urls in database */}
-                        <p>Betyg: {recipe.avgRating}</p>
-                        <p>Tid: {recipe.timeInMins} min</p>
+                        <h3>{recipe.title}</h3>
+                        <p className="recipe-rating">Betyg: {recipe.avgRating}</p>
+                        <p className="recipe-difficulty">Svårighetsgrad: {calculateDifficulty(recipe.price)}</p>
+                        <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
                     </div>
                 ))}
             </div>
