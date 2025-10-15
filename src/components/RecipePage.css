@@ -1,3 +1,4 @@
+/* ==== Header ==== */
 .recipe-header {
     display: flex;
     justify-content: space-between;
@@ -26,6 +27,7 @@
     display: flex;
     gap: 1.5rem;
 }
+
 .menu-item {
     cursor: pointer;
     color: #7A5D48;
@@ -43,19 +45,87 @@
     border-bottom: 2px solid #D66B00;
     padding-bottom: 3px;
 }
-
+/* ==== Receptsektion === */
 .recipe-detail {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #FFF9F0;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: 'Inter', sans-serif;
+    color: #2E1A07;
+}
+/* Huvudtitel "Recept" */
+.recipe-title-main {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #3A1E0A;
+}
+/* Bild och text bredvid varandra */
+.recipe-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.recipe-left {
+    flex: 1;
+    text-align: center;
+}
+
+.recipe-image {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.recipe-right {
+    flex: 1;
+}
+
+.recipe-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.recipe-right p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+/* Ingredienser & tillagning brevid varandra */
+.recipe-sections {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.ingredients, .instructions {
+    flex: 1;
     padding: 20px;
     border-radius: 8px;
 }
 
-.recipe-detail img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
+.ingredients h3, .instructions h3 {
+    font-family: 'Playfair Display', serif;
+    color: #3A1E0A;
+    margin-bottom: 10px;
+}
+
+.ingredients ul, .instructions ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.ingredients li, .instructions li {
+    margin-bottom: 6px;
+    font-size: 15px;
 }
 
 body {

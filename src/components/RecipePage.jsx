@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './RecipePage.css';
 import { getAllRecipes, calculateDifficulty } from '../services/recipeService';
 
 function RecipePage() {
     const [activeCategory, setActiveCategory] = useState('');
-    const [recipes, setRecipes] = useState([]);
     const [selectedRecipe, setSelectedRecipe] = useState(null);
 
     useEffect(() => {
         getAllRecipes()
         .then(data => {
-            setRecipes(data);
             setSelectedRecipe(data[0]); // Temporarily selects the first recipe
         })
         .catch(err => console.error('Fel vid hämtning:', err));
@@ -38,20 +36,46 @@ function RecipePage() {
 
             {selectedRecipe ? (
                 <div className="recipe-detail">
-                    <h2>{selectedRecipe.title}</h2>
-                    <img src={selectedRecipe.imageUrl} alt={selectedRecipe.title} />
-                    <p><strong>Svårighetsgrad:</strong> {calculateDifficulty(selectedRecipe.price)}</p>
-                    <p><strong>Tid:</strong> {selectedRecipe.timeInMins} min</p>
+                    <h1 className="recipe-title-main">Recept</h1>
 
-                    <h3>Ingredienser:</h3>
-                    <ul>
-                        {selectedRecipe.ingredients?.map((ing, index) => (
-                            <li key={ing._id}>
-                                {ing.amount} {ing.unit} {ing.name}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                    <div className="recipe-content">
+                        <div className="recipe-left">
+                            <img
+                            src={selectedRecipe.imageUrl}
+                            alt={selectedRecipe.title}
+                            className="recipe-image"
+                            />
+                        </div>
+
+                        <div className="recipe-right">
+                            <h2 className="recipe-title">{selectedRecipe.title}</h2>
+                            <p><strong>Svårighetsgrad:</strong> {calculateDifficulty(selectedRecipe.price)}</p>
+                            <p><strong>Tid:</strong> {selectedRecipe.timeInMins} min</p>
+                        </div>
+                    </div>
+
+                    <div className="recipe-sections">
+                        <div className="ingredients">
+                            <h3>Ingredienser</h3>
+                            <ul>
+                                {selectedRecipe.ingredients?.map((ing, index) => (
+                                    <li key={index}>
+                                        {ing.amount} {ing.unit} {ing.name}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="instructions">
+                            <h3>Tillagning</h3>
+                            <ol>
+                                {selectedRecipe.instructions?.map((step, index) => (
+                                    <li key={index}>{step}</li>
+                                ))}
+                            </ol>
+                        </div>
+                    </div>
+                </div>    
             ) : (
                 <p>Laddar recept...</p>        
             )}
