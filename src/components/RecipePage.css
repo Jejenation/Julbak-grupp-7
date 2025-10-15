@@ -44,6 +44,20 @@
     padding-bottom: 3px;
 }
 
+.recipe-detail {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #FFF9F0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.recipe-detail img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
 body {
     background-color: #FFF9F0;
 }
