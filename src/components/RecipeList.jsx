@@ -1,40 +1,50 @@
 import { useState, useEffect } from "react";
 import { calculateDifficulty, getAllRecipes } from "../services/recipeService";
-import './RecipeList.css'
-
-const searchParams = new URLSearchParams(window.location.search);
-const searchQuery = searchParams.get('search') || '';
+import "./RecipeList.css";
 
 function RecipeList() {
-    const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
 
-    useEffect(() => {
-        getAllRecipes()
-            .then(data => setRecipes(data))
-            .catch(errMsg => console.error('Error:',errMsg));
-    }, []);
+  //reading URL http://localhost:5173/?search=bullar
+  const searchParams = new URLSearchParams(window.location.search);
+  //search value from URL bullar
+  const searchQuery = searchParams.get("search") || "";
 
-    const filteredRecipes = searchQuery
-        ? recipes.filter(recipe =>
-            recipe.title.toLowerCase().includes(searchQuery.toLocaleLowerCase())
-        )
-        : recipes;
+  useEffect(() => {
+    getAllRecipes()
+      .then((data) => setRecipes(data))
+      .catch((errMsg) => console.error("Error:", errMsg));
+  }, []);
 
-    return (
-        <div>
-            <div className="recipe-grid">
-                {filteredRecipes.map(recipe => (
-                    <div key={recipe._id} className="recipe-card">
-                        <img src={recipe.imageUrl} alt={recipe.title} /> {/*Have to replace the placeholder Urls in database */}
-                        <h3>{recipe.title}</h3>
-                        <p className="recipe-rating">Betyg: {recipe.avgRating}</p>
-                        <p className="recipe-difficulty">Svårighetsgrad: {calculateDifficulty(recipe.price)}</p>
-                        <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
-                    </div>
-                ))}
+  const filteredRecipes = searchQuery
+    ? recipes.filter((recipe) =>
+        recipe.title.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+      )
+    : recipes;
+
+  return (
+    <div>
+      <div className="recipe-grid">
+        {filteredRecipes.length > 0 ? (
+          filteredRecipes.map((recipe) => (
+            <div key={recipe._id} className="recipe-card">
+              <img src={recipe.imageUrl} alt={recipe.title} />
+              <h3>{recipe.title}</h3>
+              <p className="recipe-rating">Betyg: {recipe.avgRating}</p>
+              <p className="recipe-difficulty">
+                Svårighetsgrad: {calculateDifficulty(recipe.price)}
+              </p>
+              <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
             </div>
-        </div>
-    );
+          ))
+        ) : searchQuery ? (
+          <p>Inga recept hittades för "{searchQuery}"</p>
+        ) : (
+          <p>Inga recept tillgängliga</p>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default RecipeList;

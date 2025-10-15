@@ -62,23 +62,31 @@ function HeroSection() {
           value={input}
           onChange={handleSearch}
           placeholder="Vad vill du baka idag?"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              window.location.href = `/?search=${input}`;
+            }
+          }}
         />
         <button
-            className="search-button"
-            onClick={() => {
-                if (input) {
-                    window.location.href = `/?search=${input}`;
-                }
-            }}
-            >
-            Sök
+          className="search-button"
+          tabIndex={-1}
+          onClick={() => {
+            if (input) {
+              window.location.href = `/?search=${input}`;
+            }
+          }}
+        >
+          Sök
         </button>
         {input.length >= 2 && (
+          //Dropdown suggestions
           <ul className="hero-suggestions">
             {results.length > 0 ? (
               results.map((result, i) => (
                 <li
                   key={i}
+                  //clicking with mouse
                   onClick={() => {
                     if (result.type === "category") {
                       window.location.href = `/categories/${result.name}`;
@@ -86,10 +94,19 @@ function HeroSection() {
                       window.location.href = `/recipe/${result._id}`;
                     }
                   }}
+                  //Pressing enter will search
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      if (result.type === "category") {
+                        window.location.href = `/categories/${result.name}`;
+                      } else {
+                        window.location.href = `/recipe/${result._id}`;
+                      }
+                    }
+                  }}
+                  tabIndex={0}
                 >
-                  {result.type === "category"
-                    ? `Kategori: ${result.name}`
-                    : result.title}
+                  {result.type === "category" ? result.name : result.title}
                 </li>
               ))
             ) : (
