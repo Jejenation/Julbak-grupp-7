@@ -45,7 +45,7 @@
     border-bottom: 2px solid #D66B00;
     padding-bottom: 3px;
 }
-/* ==== Receptsektion === */
+/* ==== Recipe-Sector === */
 .recipe-detail {
     max-width: 900px;
     margin: 40px auto;
@@ -55,7 +55,7 @@
     font-family: 'Inter', sans-serif;
     color: #2E1A07;
 }
-/* Huvudtitel "Recept" */
+/* Main title "Recept" */
 .recipe-title-main {
     font-family: 'Playfair Display', serif;
     text-align: center;
@@ -63,7 +63,7 @@
     margin-bottom: 30px;
     color: #3A1E0A;
 }
-/* Bild och text bredvid varandra */
+/* Image and text next to each other */
 .recipe-content {
     display: flex;
     align-items: flex-start;
@@ -98,7 +98,7 @@
     margin: 8px 0;
     font-size: 16px;
 }
-/* Ingredienser & tillagning brevid varandra */
+/* Ingredients and instructions next to each other */
 .recipe-sections {
     display: flex;
     justify-content: space-between;
