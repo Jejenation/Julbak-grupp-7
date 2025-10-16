@@ -3,20 +3,29 @@ import RecipeList from './components/RecipeList'
 import Homepage from './components/Homepage'
 import Categorypage from './components/Categorypage'
 import './App.css'
-import RecipeInCategorypage from './components/Categorypages/RecipeInCategoryList'
 import Bullarpage from './components/Categorypages/Bullarpage'
 import Julgodispage from './components/Categorypages/Julgodispage'
 import Kakorpage from './components/Categorypages/Kakorpage'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
   return (
     //<RecipePage/>
-    <Homepage/>
+    //<Homepage/>
     //<Categorypage/>
-    //<RecipeInCategorypage/>    
     //<Bullarpage/>
-    //<Julgodispage/>
+    //<Julgodispage/> 
     //<Kakorpage/>
+
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+        <Route path='/categories' element={<Categorypage />} />
+        <Route path='/categories/bullar' element={<Bullarpage />} />
+        <Route path='/categories/julgodis' element={<Julgodispage />} />
+        <Route path='/categories/kakor' element={<Kakorpage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

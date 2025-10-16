@@ -11,10 +11,9 @@ function Homepage () {
             <header className="header">
                 <div className="logo">Julens Smaker</div>
                 <nav>
-                    <a href="/">Start</a>
+                    <a href="/" className="chosen-page">Start</a>
                     <a href="/categories">Kategorier</a>
                 </nav>
-                <button className="search">🔍</button>
             </header>
 
             
@@ -25,9 +24,9 @@ function Homepage () {
 
             {/*Category here */}
             <div className="category-placeholder">
-                <a href="/bullar"><h2>Bullar</h2></a>
-                <a href="/kakor"><h2>Kakor</h2></a>
-                <a href="/julgodis"><h2>Julgodis</h2></a>
+                <a href="/categories/bullar"><h2>Bullar</h2></a>
+                <a href="/categories/kakor"><h2>Kakor</h2></a>
+                <a href="/categories/julgodis"><h2>Julgodis</h2></a>
             </div>
 
             {/* change for recipe cards*/}

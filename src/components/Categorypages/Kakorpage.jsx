@@ -10,13 +10,13 @@ function Kakorpage() {
                 <nav>
                     <a href="/">Start</a>
                     <a href="/categories/bullar">Bullar</a>
-                    <a href="/categories/kakor">Kakor</a>
+                    <a href="/categories/kakor" className='chosen-page'>Kakor</a>
                     <a href="/categories/julgodis">Julgodis</a>
                 </nav>
-                <button className="search">🔍</button>
             </header>
 
             <div>
+                <h1>Kakor</h1>
                 {RecipeInCategorypage("Kakor")}
             </div>
         </div>
