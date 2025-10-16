@@ -13,7 +13,6 @@ function Kakorpage() {
                     <a href="/categories/kakor" className='chosen-page'>Kakor</a>
                     <a href="/categories/julgodis">Julgodis</a>
                 </nav>
-                <button className="search">🔍</button>
             </header>
 
             <div>

@@ -13,7 +13,6 @@ function Julgodispage() {
                     <a href="/categories/kakor">Kakor</a>
                     <a href="/categories/julgodis" className='chosen-page'>Julgodis</a>
                 </nav>
-                <button className="search">🔍</button>
             </header>
 
             <div>

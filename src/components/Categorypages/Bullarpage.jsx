@@ -13,7 +13,6 @@ function Bullarpage() {
                     <a href="/categories/kakor">Kakor</a>
                     <a href="/categories/julgodis">Julgodis</a>
                 </nav>
-                <button className="search">🔍</button>
             </header>
 
             <div>

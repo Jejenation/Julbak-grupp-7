@@ -11,10 +11,9 @@ function Homepage () {
             <header className="header">
                 <div className="logo">Julens Smaker</div>
                 <nav>
-                    <a href="/">Start</a>
+                    <a href="/" className="chosen-page">Start</a>
                     <a href="/categories">Kategorier</a>
                 </nav>
-                <button className="search">🔍</button>
             </header>
 
             

@@ -9,9 +9,8 @@ function Categorypage() {
                 <div className="logo">Julens Smaker</div>
                 <nav>
                     <a href="/">Start</a>
-                    <a href="/categories">Kategorier</a>
+                    <a href="/categories" className='chosen-page'>Kategorier</a>
                 </nav>
-                <button className="search">🔍</button>
             </header>
             <h1>Kategorier</h1>
             <div className='categories'>
