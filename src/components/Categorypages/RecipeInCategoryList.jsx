@@ -8,7 +8,7 @@ function RecipeInCategorypage(category) {
         getRecipeWithCategory(category)
             .then(data => setRecipes(data))
             .catch(errMsg => console.error('Error:',errMsg));
-    }, []);
+    }, [category]);
 
     return (
         <div>
@@ -16,7 +16,7 @@ function RecipeInCategorypage(category) {
                 {recipes.map(recipe => (
                     <div key={recipe._id} className="category-recipe-card">
                         {/*<h1 className="recipe-category-title">{recipe.categories}</h1>*/}
-                        <img src={recipe.imageUrl} alt={recipe.title} /> {/*Have to replace the placeholder Urls in database */}
+                        <img src={recipe.imageUrl} alt={recipe.title} />
                         <div className="category-recipe-card-child">
                         <h3>{recipe.title}</h3>
                         <p>Betyg: {recipe.avgRating}</p>
