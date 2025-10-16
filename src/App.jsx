@@ -5,14 +5,25 @@ import './App.css'
 import Bullarpage from './components/Categorypages/Bullarpage'
 import Julgodispage from './components/Categorypages/Julgodispage'
 import Kakorpage from './components/Categorypages/Kakorpage'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
   return (
-    <Homepage/>
+    //<Homepage/>
     //<Categorypage/>
     //<Bullarpage/>
     //<Julgodispage/>
     //<Kakorpage/>
+
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+        <Route path='/categories' element={<Categorypage />} />
+        <Route path='/categories/bullar' element={<Bullarpage />} />
+        <Route path='/categories/julgodis' element={<Julgodispage />} />
+        <Route path='/categories/kakor' element={<Kakorpage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
