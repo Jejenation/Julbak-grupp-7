@@ -3,12 +3,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 15px;
     background-color: #FFF9F0;
     border-bottom: 1px solid #E8DCC9;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Playfair Display', serif;
     color: #2E1A07;
-    gap: 3rem;
+    gap: 40px;
 }
 
 .logo {
@@ -25,6 +25,7 @@
 }
 
 .menu {
+    text-decoration: none;
     display: flex;
     gap: 1.5rem;
 }
@@ -32,8 +33,9 @@
 .menu-item {
     cursor: pointer;
     color: #7A5D48;
-    font-weight: 500;
+    font-weight: bold;
     transition: color 0.2s ease-in-out;
+    font-family: 'Playfair Display', serif;
 }
 
 .menu-item:hover {
@@ -42,9 +44,8 @@
 
 .menu-item.active {
     color: #D66B00;
-    font-weight: 700;
-    border-bottom: 2px solid #D66B00;
-    padding-bottom: 3px;
+    font-weight: bold;
+
 }
 /* ==== Recipe-Sector === */
 .recipe-detail {
