@@ -1,13 +1,14 @@
 /* ==== Header ==== */
 .recipe-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 1rem 2rem;
     background-color: #FFF9F0;
     border-bottom: 1px solid #E8DCC9;
     font-family: 'Inter', sans-serif;
     color: #2E1A07;
+    gap: 3rem;
 }
 
 .logo {
