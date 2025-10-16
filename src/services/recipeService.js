@@ -6,6 +6,11 @@ export const getAllRecipes = async () => {
     return res.json();
 };
 
+export const getRecipeWithCategory = async (categoryName) => {
+    const res = await fetch (`${API_BASE_URL}/categories/${categoryName}/recipes`)
+    return res.json();
+}
+
 //To be able to save difficulty in the API we use 'price', 
 // because there where no variable for difficulty and we do not need price
 export function calculateDifficulty(price) {

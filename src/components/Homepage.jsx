@@ -1,5 +1,5 @@
-//import { useState } from "react";
-import RecipeList from "./RecipeList";
+import RecipeList from "./RecipeList"
+import HeroSection from "./Herosection";
 import './Homepage.css'
 
 
@@ -19,13 +19,15 @@ function Homepage () {
 
             
             {/*Hero section here */}
-            <div className="hero-placeholder">
-                Hero Section (Coming soon :D)
+            <div className="hero-section">
+                <HeroSection />
             </div>
 
             {/*Category here */}
             <div className="category-placeholder">
-                Categories (Coming soon :D)
+                <a href="/bullar"><h2>Bullar</h2></a>
+                <a href="/kakor"><h2>Kakor</h2></a>
+                <a href="/julgodis"><h2>Julgodis</h2></a>
             </div>
 
             {/* change for recipe cards*/}
