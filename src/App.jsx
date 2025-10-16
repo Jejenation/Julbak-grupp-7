@@ -10,7 +10,7 @@ import Kakorpage from './components/Categorypages/Kakorpage'
 
 function App() {
   return (
-    <RecipePage />
+    //<RecipePage/>
     <Homepage/>
     //<Categorypage/>
     //<RecipeInCategorypage/>    
