@@ -1,4 +1,5 @@
-import RecipeList from './components/RecipeList'
+//import RecipePage from './components/RecipePage'
+//import RecipeList from './components/RecipeList'
 import Homepage from './components/Homepage'
 import Categorypage from './components/Categorypage'
 import './App.css'
@@ -9,10 +10,11 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
   return (
+    //<RecipePage/>
     //<Homepage/>
     //<Categorypage/>
     //<Bullarpage/>
-    //<Julgodispage/>
+    //<Julgodispage/> 
     //<Kakorpage/>
 
     <BrowserRouter>
