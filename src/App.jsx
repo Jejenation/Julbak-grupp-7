@@ -1,5 +1,5 @@
-import RecipePage from './components/RecipePage'
-import RecipeList from './components/RecipeList'
+//import RecipePage from './components/RecipePage'
+//import RecipeList from './components/RecipeList'
 import Homepage from './components/Homepage'
 import Categorypage from './components/Categorypage'
 import './App.css'

@@ -59,6 +59,10 @@ function RecipePage() {
                             <h3>Ingredienser</h3>
                             <ul>
                                 {selectedRecipe.ingredients?.map((ing, index) => (
+                                    // Using array index as key is acceptable here since:
+                                    //-The ingredient list is static and wont be recordered
+                                    //-Each render produces the same items in the same order
+                                    // If list order or content becomes dynamic later, use a unique ID instead.
                                     <li key={index}>
                                         {ing.amount} {ing.unit} {ing.name}
                                     </li>
@@ -70,6 +74,10 @@ function RecipePage() {
                             <h3>Tillagning</h3>
                             <ol>
                                 {selectedRecipe.instructions?.map((step, index) => (
+                                    // Using array index as key is acceptable here since:
+                                    //-The ingredient list is static and wont be recordered
+                                    //-Each render produces the same items in the same order
+                                    // If list order or content becomes dynamic later, use a unique ID instead.
                                     <li key={index}>{step}</li>
                                 ))}
                             </ol>
