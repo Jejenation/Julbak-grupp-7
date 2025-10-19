@@ -83,6 +83,16 @@ function RecipePage() {
                             </ol>
                         </div>
                     </div>
+
+                    {/* Comment field */}
+                    <div classname="comment-section">
+                        <h3>Kommentar</h3>
+                        <textarea
+                        className="comment-box"
+                        placeholder="Lämna en kommentar"
+                        ></textarea>
+                        <button className="comment-button">Skicka kommentar</button>
+                    </div>
                 </div>    
             ) : (
                 <p>Laddar recept...</p>        

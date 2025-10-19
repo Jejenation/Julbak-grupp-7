@@ -1,4 +1,4 @@
-//import RecipePage from './components/RecipePage'
+import RecipePage from './components/RecipePage'
 //import RecipeList from './components/RecipeList'
 import Homepage from './components/Homepage'
 import Categorypage from './components/Categorypage'
@@ -6,17 +6,18 @@ import './App.css'
 import Bullarpage from './components/Categorypages/Bullarpage'
 import Julgodispage from './components/Categorypages/Julgodispage'
 import Kakorpage from './components/Categorypages/Kakorpage'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+//import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
   return (
-    //<RecipePage/>
+    <RecipePage/>
     //<Homepage/>
     //<Categorypage/>
     //<Bullarpage/>
     //<Julgodispage/> 
     //<Kakorpage/>
 
+    /*
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Homepage />} />
@@ -26,6 +27,7 @@ function App() {
         <Route path='/categories/kakor' element={<Kakorpage />} />
       </Routes>
     </BrowserRouter>
+    */
   )
 }
 
