@@ -1,6 +1,7 @@
 import RecipeList from "./RecipeList"
 import HeroSection from "./Herosection";
 import './Homepage.css'
+import { NavLink, Link } from "react-router-dom";
 
 
 function Homepage () {
@@ -11,8 +12,8 @@ function Homepage () {
             <header className="header">
                 <div className="logo">Julens Smaker</div>
                 <nav>
-                    <a href="/" className="chosen-page">Start</a>
-                    <a href="/categories">Kategorier</a>
+                    <NavLink to="/" className='chosen-page'>Start</NavLink>
+                    <NavLink to="/categories">Kategorier</NavLink>
                 </nav>
             </header>
 
@@ -24,9 +25,9 @@ function Homepage () {
 
             {/*Category here */}
             <div className="category-placeholder">
-                <a href="/categories/bullar"><h2>Bullar</h2></a>
-                <a href="/categories/kakor"><h2>Kakor</h2></a>
-                <a href="/categories/julgodis"><h2>Julgodis</h2></a>
+                <Link to="/categories/bullar"><h2>Bullar</h2></Link>
+                <Link to="/categories/kakor"><h2>Kakor</h2></Link>
+                <Link to="/categories/julgodis"><h2>Julgodis</h2></Link>
             </div>
 
             {/* change for recipe cards*/}

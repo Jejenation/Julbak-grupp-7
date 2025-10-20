@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import RecipeInCategorypage from './RecipeInCategoryList';
 
 function Bullarpage() {
@@ -8,10 +9,10 @@ function Bullarpage() {
             <header className="header">
                 <div className="logo">Julens Smaker</div>
                 <nav>
-                    <a href="/">Start</a>
-                    <a href="/categories/bullar" className='chosen-page'>Bullar</a>
-                    <a href="/categories/kakor">Kakor</a>
-                    <a href="/categories/julgodis">Julgodis</a>
+                    <NavLink to="/">Start</NavLink>
+                    <NavLink to="/categories/bullar" className='chosen-page'>Bullar</NavLink>
+                    <NavLink to="/categories/kakor">Kakor</NavLink>
+                    <NavLink to="/categories/julgodis">Julgodis</NavLink>
                 </nav>
             </header>
 
