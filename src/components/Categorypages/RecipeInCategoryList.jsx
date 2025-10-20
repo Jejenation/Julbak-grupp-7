@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getRecipeWithCategory }  from "../../services/recipeService";
+import { getRecipeWithCategory, calculateDifficulty }  from "../../services/recipeService";
 
 function RecipeInCategorypage(category) {
     const [recipes, setRecipes] = useState([]);
@@ -20,6 +20,9 @@ function RecipeInCategorypage(category) {
                         <div className="category-recipe-card-child">
                         <h3>{recipe.title}</h3>
                         <p>Betyg: {recipe.avgRating}</p>
+                        <p className="recipe-difficulty">
+                                        Svårighetsgrad: {calculateDifficulty(recipe.price)}
+                                      </p>
                         <p>Tid: {recipe.timeInMins} min</p>
                         </div>
                     </div>
