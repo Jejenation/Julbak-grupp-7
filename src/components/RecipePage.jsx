@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import './RecipePage.css';
-import { getAllRecipes, calculateDifficulty } from '../services/recipeService';
+import { getAllRecipes, calculateDifficulty, rateRecipe } from '../services/recipeService';
 
 function RecipePage() {
     const [activeCategory, setActiveCategory] = useState('');
     const [selectedRecipe, setSelectedRecipe] = useState(null);
+    const [rating, setRating] = useState(0);
+    const [saving, setSaving] = useState(false);
 
     useEffect(() => {
         getAllRecipes()
@@ -13,6 +15,22 @@ function RecipePage() {
         })
         .catch(err => console.error('Fel vid hämtning:', err));
     }, []);
+
+    const handleRatingClick = async (star) => {
+        if (!selectedRecipe) return;
+
+        setRating(star);
+        setSaving(true);
+
+        try {
+            await rateRecipe(selectedRecipe.id, star);
+            console.log(`Betyg ${star} sparat för recept ${selectedRecipe.id}`);
+        } catch (error) {
+            console.error('Kunde inte spara betyg:', error);
+        } finally {
+            setSaving(false);
+        }
+    };
 
     return (
         <div>
@@ -84,6 +102,22 @@ function RecipePage() {
                         </div>
                     </div>
 
+                    <div className="recipe-rating">
+                        <h3>Betygsätt detta recept:</h3>
+                        <div className="stars">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                                <span
+                                key={star}
+                                className={star <= rating ? "star filled" : "star"}
+                                onClick={() => handleRatingClick(star)}
+                                >
+                                    ★
+                                </span>
+                            ))}
+                        </div>
+                        {saving && <p>Sparar betyg...</p>}
+                    </div>
+                    
                     {/* Comment field */}
                     <div classname="comment-section">
                         <h3>Kommentar</h3>
