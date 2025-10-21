@@ -64,7 +64,7 @@ function HeroSection() {
           placeholder="Vad vill du baka idag?"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              window.location.href = `/?search=${input}`;
+              globalThis.location.href = `/?search=${input}`;
             }
           }}
         />
@@ -73,7 +73,7 @@ function HeroSection() {
           tabIndex={-1}
           onClick={() => {
             if (input) {
-              window.location.href = `/?search=${input}`;
+              globalThis.location.href = `/?search=${input}`;
             }
           }}
         >
@@ -89,18 +89,18 @@ function HeroSection() {
                   //clicking with mouse
                   onClick={() => {
                     if (result.type === "category") {
-                      window.location.href = `/categories/${result.name}`;
+                      globalThis.location.href = `/categories/${result.name}`;
                     } else {
-                      window.location.href = `/recipe/${result._id}`;
+                      globalThis.location.href = `/recipe/${result._id}`;
                     }
                   }}
                   //Pressing enter will search
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       if (result.type === "category") {
-                        window.location.href = `/categories/${result.name}`;
+                        globalThis.location.href = `/categories/${result.name}`;
                       } else {
-                        window.location.href = `/recipe/${result._id}`;
+                        globalThis.location.href = `/recipe/${result._id}`;
                       }
                     }
                   }}

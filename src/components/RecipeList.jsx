@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import { calculateDifficulty, getAllRecipes } from "../services/recipeService";
+import {
+  calculateDifficulty,
+  getAllRecipes,
+  getIngredientCount,
+} from "../services/recipeService";
 import "./RecipeList.css";
 
 function RecipeList() {
@@ -35,6 +39,9 @@ function RecipeList() {
                 Svårighetsgrad: {calculateDifficulty(recipe.price)}
               </p>
               <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
+              <p className="recipe-ingredients">
+                Ingredienser: {getIngredientCount(recipe)}
+              </p>
             </div>
           ))
         ) : searchQuery ? (

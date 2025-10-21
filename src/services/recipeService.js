@@ -25,3 +25,10 @@ export function calculateDifficulty(price) {
     }
     return difficulty;
 };
+
+export function getIngredientCount(recipe) {
+    if (!recipe || !recipe.ingredients) {
+        return 0;
+    }
+    return recipe.ingredients.length;
+}
