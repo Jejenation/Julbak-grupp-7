@@ -41,3 +41,13 @@ export function filterRecipes(recipes, query) {
         recipe.title.toLowerCase().includes(query.toLowerCase())
     );
 }
+
+export function countByCategory(recipes) {
+    const count = {};
+    for (const recipe of recipes) {
+        for(const category of recipe.categories || []) {
+            count[category] = (count[category] || 0) + 1;
+        }
+    }
+    return count;
+}
