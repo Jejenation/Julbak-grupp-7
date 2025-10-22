@@ -32,3 +32,12 @@ export function getIngredientCount(recipe) {
     }
     return recipe.ingredients.length;
 }
+
+export function filterRecipes(recipes, query) {
+    if (!query) {
+        return recipes;
+    }
+    return recipes.filter(recipe =>
+        recipe.title.toLowerCase().includes(query.toLowerCase())
+    );
+}

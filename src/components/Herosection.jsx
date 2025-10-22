@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Herosection.css";
-import { getAllRecipes } from "../services/recipeService";
+import { getAllRecipes, filterRecipes } from "../services/recipeService";
 
 function HeroSection() {
   //Input
@@ -30,9 +30,7 @@ function HeroSection() {
       return;
     }
     //checking for matches via title
-    const filtered = allRecipes.filter((recipe) =>
-      recipe.title.toLowerCase().includes(value.toLowerCase())
-    );
+    const filtered = filterRecipes(allRecipes, value);
     //checking category
     const filteredCategories = allCategories.filter((category) =>
       category.toLowerCase().includes(value.toLowerCase())
@@ -119,7 +117,3 @@ function HeroSection() {
   );
 }
 export default HeroSection;
-
-// TODO
-// search button will re render the homepage with updated recipecards based on the input
-// clicking a recipe in the hero-suggestions will redirect you to the recipe url
