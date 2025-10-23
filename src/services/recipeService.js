@@ -27,14 +27,21 @@ export function calculateDifficulty(price) {
 };
 
 export async function rateRecipe(recipeId, rating) {
+    const response = await fetch(`${API_BASE_URL}/recipes/${recipeId}/ratings`, {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify({ rating }),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to save rating');
+    }
+
     try {
-        const response = await fetch(`${API_BASE_URL}/recipes/${recipeId}/rating?rating=${rating}`, {
-            method: 'POST',
-        });
-        if (!response.ok) throw new Error('Failed to save rating');
         return await response.json();
-    } catch (error) {
-        console.error('Error saving rating:', error);
-        throw error;
+    } catch {
+        return null;
     }
 }

@@ -171,11 +171,11 @@ body {
 .recipe-rating {
     margin-top: 2rem;
     text-align: left;
+    padding: 20px 0 20px 20px;
 }
 
 .stars {
     display: inline-block;
-    cursor: pointer;
 }
 
 .star {
@@ -188,6 +188,10 @@ body {
     color: gold;
 }
 
-.star:hover {
+.stars.clickable .star {
+    cursor: pointer;
+}
+
+.stars.clickable .star:hover {
     color: orange;
 }
