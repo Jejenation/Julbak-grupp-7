@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './RecipePage.css';
-//import { getAllRecipes, calculateDifficulty } from '../services/recipeService';
+import { calculateDifficulty } from '../services/recipeService';
 import { NavLink, useParams } from 'react-router-dom';
 import { getRecipeWithId } from '../services/recipeService';
 
