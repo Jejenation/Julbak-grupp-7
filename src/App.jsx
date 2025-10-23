@@ -1,4 +1,3 @@
-//import RecipePage from './components/RecipePage'
 //import RecipeList from './components/RecipeList'
 import Homepage from './components/Homepage'
 import Categorypage from './components/Categorypage'
@@ -11,13 +10,14 @@ import RecipePage from './components/RecipePage'
 
 function App() {
   return (
-    //<RecipePage/>
+    <RecipePage/>
     //<Homepage/>
     //<Categorypage/>
     //<Bullarpage/>
     //<Julgodispage/> 
     //<Kakorpage/>
 
+    /*
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Homepage />} />
@@ -28,6 +28,7 @@ function App() {
         <Route path='/recipe/:_id' element={<RecipePage />} />
       </Routes>
     </BrowserRouter>
+    */
   )
 }
 

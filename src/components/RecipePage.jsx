@@ -1,12 +1,25 @@
 import { useState, useEffect } from 'react';
 import './RecipePage.css';
-import { calculateDifficulty } from '../services/recipeService';
+import { calculateDifficulty, rateRecipe, getRecipeWithId } from '../services/recipeService';
 import { NavLink, useParams } from 'react-router-dom';
-import { getRecipeWithId } from '../services/recipeService';
 
 function RecipePage() {
     //const [activeCategory, setActiveCategory] = useState('');
     const [selectedRecipe, setSelectedRecipe] = useState(null);
+    const [rating, setRating] = useState(0);
+    const [saving, setSaving] = useState(false);
+    const [message, setMessage] = useState('');
+
+    /*const loadRecipe = async () => {
+        try {
+            const data = await getAllRecipes();
+            const recipe = data[0];
+            setSelectedRecipe(recipe);
+            console.log("Loaded recipe:", recipe)
+        } catch (err) {
+            console.error('Fel vid hämtning:', err);
+        }
+    }; */
 
     const {_id} = useParams();
 
@@ -17,6 +30,28 @@ function RecipePage() {
         })
         .catch(err => console.error('Fel vid hämtning:', err));
     }, [_id]);
+
+    const handleRatingClick = async (star) => {
+        if (!selectedRecipe) return;
+
+        setRating(star);
+        setSaving(true);
+
+        try {
+            console.log("Selected recipe:", selectedRecipe);
+            await rateRecipe(selectedRecipe._id, star);
+    
+            setMessage("Tack för ditt betyg!⭐");
+            //await loadRecipe();
+            //Kan behöva lägga till funktion för att hämta senaste versionen av receptet
+        } catch (err) {
+            console.error("Fel:", err);
+            setMessage("Nätverksfel vid sparning.");
+        } finally {
+            setSaving(false);
+            setTimeout(() => setMessage(''), 5000);
+        }
+    };
 
     return (
         <div>
@@ -94,11 +129,66 @@ function RecipePage() {
                             </ol>
                         </div>
                     </div>
-                </div>    
-            ) : (
-                <p>Laddar recept...</p>        
-            )}
-        </div>
+
+                    <div className="recipe-rating">
+                        <h3>Betygsätt detta recept</h3>
+    
+                    <div className="stars clickable" aria-label="rating">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                            <span
+                            key={star}
+                            role="button"
+                            tabIndex={0}
+                            className={star <= rating ? 'star filled' : 'star'}
+                            onClick={() => handleRatingClick(star)}
+                            onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') handleRatingClick(star); }}
+                            >
+                                ★
+                            </span>
+                        ))}
+                    </div>
+                    {saving && <p className="rating-message">Sparar betyg...</p>}
+                    {message && <p className="rating-message">{message}</p>}
+
+                    <div className="average-rating">
+                        <h4>Genomsnittligt betyg:</h4>
+                            <div className="stars">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                                <span
+                                key={star}
+                                className={
+                                    selectedRecipe.avgRating >= star
+                                    ? 'star filled'
+                                    : selectedRecipe.avgRating >= star - 0.5
+                                    ? 'star half'
+                                    : 'star'
+                                }
+                            >
+                                ★
+                            </span>
+                        ))}
+                        <span className="rating-number">
+                            ({selectedRecipe.avgRating ? selectedRecipe.avgRating.toFixed(1) : "0"})
+                        </span>
+                    </div>
+                </div>
+            </div>    
+
+            {/* Comment field */}
+            <div className="comment-section">
+                <h3>Kommentar</h3>
+                <textarea
+                className="comment-box"
+                placeholder="Lämna en kommentar"
+                ></textarea>
+                <button className="comment-button">Skicka kommentar</button>
+            </div>
+        </div>    
+        ) : (
+        <p>Laddar recept...</p>        
+        )}
+    </div>
     );
 }
 
