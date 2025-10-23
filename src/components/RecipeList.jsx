@@ -5,6 +5,7 @@ import {
   getIngredientCount,
 } from "../services/recipeService";
 import "./RecipeList.css";
+import RecipeCard from "./RecipeCard";
 
 function RecipeList() {
   const [recipes, setRecipes] = useState([]);
@@ -31,18 +32,7 @@ function RecipeList() {
       <div className="recipe-grid">
         {filteredRecipes.length > 0 ? (
           filteredRecipes.map((recipe) => (
-            <div key={recipe._id} className="recipe-card">
-              <img src={recipe.imageUrl} alt={recipe.title} />
-              <h3>{recipe.title}</h3>
-              <p className="recipe-rating">Betyg: {recipe.avgRating}</p>
-              <p className="recipe-difficulty">
-                Svårighetsgrad: {calculateDifficulty(recipe.price)}
-              </p>
-              <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
-              <p className="recipe-ingredients">
-                Ingredienser: {getIngredientCount(recipe)}
-              </p>
-            </div>
+            <RecipeCard key={recipe._id} recipe={recipe} />
           ))
         ) : searchQuery ? (
           <p>Inga recept hittades för "{searchQuery}"</p>
