@@ -11,6 +11,11 @@ export const getRecipeWithCategory = async (categoryName) => {
     return res.json();
 }
 
+export const getRecipeWithId = async (recipeId) => {
+    const res = await fetch (`${API_BASE_URL}/recipes/${recipeId}`)
+    return res.json();
+}
+
 //To be able to save difficulty in the API we use 'price', 
 // because there where no variable for difficulty and we do not need price
 export function calculateDifficulty(price) {
@@ -44,4 +49,29 @@ export async function rateRecipe(recipeId, rating) {
     } catch {
         return null;
     }
+}
+export function getIngredientCount(recipe) {
+    if (!recipe || !recipe.ingredients) {
+        return 0;
+    }
+    return recipe.ingredients.length;
+}
+
+export function filterRecipes(recipes, query) {
+    if (!query) {
+        return recipes;
+    }
+    return recipes.filter(recipe =>
+        recipe.title.toLowerCase().includes(query.toLowerCase())
+    );
+}
+
+export function countByCategory(recipes) {
+    const count = {};
+    for (const recipe of recipes) {
+        for(const category of recipe.categories || []) {
+            count[category] = (count[category] || 0) + 1;
+        }
+    }
+    return count;
 }

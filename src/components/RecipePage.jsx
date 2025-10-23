@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import './RecipePage.css';
-import { getAllRecipes, calculateDifficulty, rateRecipe } from '../services/recipeService';
+import { getAllRecipes, calculateDifficulty, rateRecipe, getRecipeWithId } from '../services/recipeService';
+import { NavLink, useParams } from 'react-router-dom';
 
 function RecipePage() {
-    const [activeCategory, setActiveCategory] = useState('');
+    //const [activeCategory, setActiveCategory] = useState('');
     const [selectedRecipe, setSelectedRecipe] = useState(null);
     const [rating, setRating] = useState(0);
     const [saving, setSaving] = useState(false);
     const [message, setMessage] = useState('');
 
-    const loadRecipe = async () => {
+    /*const loadRecipe = async () => {
         try {
             const data = await getAllRecipes();
             const recipe = data[0];
@@ -18,11 +19,17 @@ function RecipePage() {
         } catch (err) {
             console.error('Fel vid hämtning:', err);
         }
-    };
+    }; */
+
+    const {_id} = useParams();
 
     useEffect(() => {
-        loadRecipe();
-    }, []);
+        getRecipeWithId(_id)
+        .then(data => {
+            setSelectedRecipe(data); 
+        })
+        .catch(err => console.error('Fel vid hämtning:', err));
+    }, [_id]);
 
     const handleRatingClick = async (star) => {
         if (!selectedRecipe) return;
@@ -48,7 +55,7 @@ function RecipePage() {
     return (
         <div>
             <header className="recipe-header">
-                <div className="logo">
+                {/*<div className="logo">
                     <span className="site-title">Julens Smaker</span>
                 </div>
 
@@ -62,6 +69,13 @@ function RecipePage() {
                             {item}
                         </span>
                     ))}
+                </nav> */}
+                <div className="logo">Julens Smaker</div>
+                <nav>
+                    <NavLink to="/">Start</NavLink>
+                    <NavLink to="/categories/bullar">Bullar</NavLink>
+                    <NavLink to="/categories/kakor">Kakor</NavLink>
+                    <NavLink to="/categories/julgodis">Julgodis</NavLink>
                 </nav>
             </header>
 

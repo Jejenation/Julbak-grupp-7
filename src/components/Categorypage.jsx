@@ -1,4 +1,6 @@
 import './Categorypage.css'
+import { NavLink, Link } from 'react-router-dom';
+
 
 function Categorypage() {
     console.log('Categorypage render');
@@ -8,24 +10,24 @@ function Categorypage() {
             <header className="header">
                 <div className="logo">Julens Smaker</div>
                 <nav>
-                    <a href="/">Start</a>
-                    <a href="/categories" className='chosen-page'>Kategorier</a>
+                    <NavLink to="/">Start</NavLink>
+                    <NavLink to="/categories" className='chosen-page'>Kategorier</NavLink>
                 </nav>
             </header>
             <h1>Kategorier</h1>
             <div className='categories'>
-                <a href="/categories/bullar">
+                <Link to="/categories/bullar">
                     <img src="https://i.imgur.com/O2JGnLr.jpeg" alt="Bullar" />
                     <h2>Bullar</h2>
-                </a>
-                <a href="/categories/kakor">
+                </Link>
+                <Link to="/categories/kakor">
                     <img src="https://i.imgur.com/KyR42pd.jpeg" alt="Kakor" />
                     <h2>Kakor</h2>
-                </a>
-                <a href="/categories/julgodis">
+                </Link>
+                <Link to="/categories/julgodis">
                     <img src="https://i.imgur.com/njNJnFu.jpeg" alt="Julgodis" />
                     <h2>Julgodis</h2>
-                </a>
+                </Link>
             </div>
         </div>
     )

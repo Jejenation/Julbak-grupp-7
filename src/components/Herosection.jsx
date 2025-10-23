@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Herosection.css";
-import { getAllRecipes } from "../services/recipeService";
+import { getAllRecipes, filterRecipes } from "../services/recipeService";
+import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
   //Input
@@ -11,6 +12,7 @@ function HeroSection() {
   const [results, setResults] = useState([]);
   //category
   const [allCategories, setAllCategories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllRecipes().then((data) => {
@@ -30,9 +32,7 @@ function HeroSection() {
       return;
     }
     //checking for matches via title
-    const filtered = allRecipes.filter((recipe) =>
-      recipe.title.toLowerCase().includes(value.toLowerCase())
-    );
+    const filtered = filterRecipes(allRecipes, value);
     //checking category
     const filteredCategories = allCategories.filter((category) =>
       category.toLowerCase().includes(value.toLowerCase())
@@ -64,7 +64,7 @@ function HeroSection() {
           placeholder="Vad vill du baka idag?"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              window.location.href = `/?search=${input}`;
+              navigate(`/?search=${input}`);
             }
           }}
         />
@@ -73,7 +73,7 @@ function HeroSection() {
           tabIndex={-1}
           onClick={() => {
             if (input) {
-              window.location.href = `/?search=${input}`;
+              navigate(`/?search=${input}`);
             }
           }}
         >
@@ -89,18 +89,18 @@ function HeroSection() {
                   //clicking with mouse
                   onClick={() => {
                     if (result.type === "category") {
-                      window.location.href = `/categories/${result.name}`;
+                      navigate(`/categories/${result.name}`);
                     } else {
-                      window.location.href = `/recipe/${result._id}`;
+                      navigate(`/recipe/${result._id}`);
                     }
                   }}
                   //Pressing enter will search
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       if (result.type === "category") {
-                        window.location.href = `/categories/${result.name}`;
+                        navigate(`/categories/${result.name}`);
                       } else {
-                        window.location.href = `/recipe/${result._id}`;
+                        navigate(`/recipe/${result._id}`);
                       }
                     }
                   }}
@@ -119,7 +119,3 @@ function HeroSection() {
   );
 }
 export default HeroSection;
-
-// TODO
-// search button will re render the homepage with updated recipecards based on the input
-// clicking a recipe in the hero-suggestions will redirect you to the recipe url

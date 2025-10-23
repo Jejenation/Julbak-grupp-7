@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import { calculateDifficulty, getAllRecipes } from "../services/recipeService";
+import { getAllRecipes } from "../services/recipeService";
 import "./RecipeList.css";
+import RecipeCard from "./RecipeCard";
+import { Link, useSearchParams } from "react-router-dom";
 
 function RecipeList() {
   const [recipes, setRecipes] = useState([]);
-
-  //reading URL http://localhost:5173/?search=bullar
-  const searchParams = new URLSearchParams(window.location.search);
-  //search value from URL bullar
+  const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("search") || "";
 
   useEffect(() => {
@@ -27,15 +26,9 @@ function RecipeList() {
       <div className="recipe-grid">
         {filteredRecipes.length > 0 ? (
           filteredRecipes.map((recipe) => (
-            <div key={recipe._id} className="recipe-card">
-              <img src={recipe.imageUrl} alt={recipe.title} />
-              <h3>{recipe.title}</h3>
-              <p className="recipe-rating">Betyg: {recipe.avgRating}</p>
-              <p className="recipe-difficulty">
-                Svårighetsgrad: {calculateDifficulty(recipe.price)}
-              </p>
-              <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
-            </div>
+            <Link to={`/recipe/${recipe._id}`} >
+            <RecipeCard key={recipe._id} recipe={recipe} />
+            </Link>  
           ))
         ) : searchQuery ? (
           <p>Inga recept hittades för "{searchQuery}"</p>
