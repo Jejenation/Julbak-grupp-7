@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
 import './RecipePage.css';
 import { getAllRecipes, calculateDifficulty } from '../services/recipeService';
+import { NavLink, useParams } from 'react-router-dom';
+import { getRecipeWithId } from '../services/recipeService';
 
 function RecipePage() {
     const [activeCategory, setActiveCategory] = useState('');
     const [selectedRecipe, setSelectedRecipe] = useState(null);
 
+    const {_id} = useParams();
+
     useEffect(() => {
-        getAllRecipes()
+        getRecipeWithId(_id)
         .then(data => {
-            setSelectedRecipe(data[0]); // Temporarily selects the first recipe
+            setSelectedRecipe(data); 
         })
         .catch(err => console.error('Fel vid hämtning:', err));
     }, []);
@@ -17,7 +21,7 @@ function RecipePage() {
     return (
         <div>
             <header className="recipe-header">
-                <div className="logo">
+                {/*<div className="logo">
                     <span className="site-title">Julens Smaker</span>
                 </div>
 
@@ -31,6 +35,13 @@ function RecipePage() {
                             {item}
                         </span>
                     ))}
+                </nav> */}
+                <div className="logo">Julens Smaker</div>
+                <nav>
+                    <NavLink to="/">Start</NavLink>
+                    <NavLink to="/categories/bullar">Bullar</NavLink>
+                    <NavLink to="/categories/kakor">Kakor</NavLink>
+                    <NavLink to="/categories/julgodis">Julgodis</NavLink>
                 </nav>
             </header>
 

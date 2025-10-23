@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { calculateDifficulty, getAllRecipes } from "../services/recipeService";
 import "./RecipeList.css";
+import { Link } from "react-router-dom";
 
 function RecipeList() {
   const [recipes, setRecipes] = useState([]);
@@ -27,15 +28,17 @@ function RecipeList() {
       <div className="recipe-grid">
         {filteredRecipes.length > 0 ? (
           filteredRecipes.map((recipe) => (
-            <div key={recipe._id} className="recipe-card">
-              <img src={recipe.imageUrl} alt={recipe.title} />
-              <h3>{recipe.title}</h3>
-              <p className="recipe-rating">Betyg: {recipe.avgRating}</p>
-              <p className="recipe-difficulty">
-                Svårighetsgrad: {calculateDifficulty(recipe.price)}
-              </p>
-              <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
-            </div>
+            <Link to={`/recipe/${recipe._id}`}>
+              <div key={recipe._id} className="recipe-card">
+                <img src={recipe.imageUrl} alt={recipe.title} />
+                <h3>{recipe.title}</h3>
+                <p className="recipe-rating">Betyg: {recipe.avgRating}</p>
+                <p className="recipe-difficulty">
+                  Svårighetsgrad: {calculateDifficulty(recipe.price)}
+                </p>
+                <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
+              </div>
+            </Link>
           ))
         ) : searchQuery ? (
           <p>Inga recept hittades för "{searchQuery}"</p>
