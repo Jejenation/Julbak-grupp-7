@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  calculateDifficulty,
-  getAllRecipes,
-  getIngredientCount,
-} from "../services/recipeService";
+import { getAllRecipes } from "../services/recipeService";
 import "./RecipeList.css";
 import RecipeCard from "./RecipeCard";
 import { Link } from "react-router-dom";
