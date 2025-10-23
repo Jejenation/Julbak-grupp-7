@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { calculateDifficulty, getAllRecipes } from "../services/recipeService";
+import { getAllRecipes } from "../services/recipeService";
 import "./RecipeList.css";
+import RecipeCard from "./RecipeCard";
 import { Link } from "react-router-dom";
 
 function RecipeList() {
@@ -28,17 +29,9 @@ function RecipeList() {
       <div className="recipe-grid">
         {filteredRecipes.length > 0 ? (
           filteredRecipes.map((recipe) => (
-            <Link to={`/recipe/${recipe._id}`}>
-              <div key={recipe._id} className="recipe-card">
-                <img src={recipe.imageUrl} alt={recipe.title} />
-                <h3>{recipe.title}</h3>
-                <p className="recipe-rating">Betyg: {recipe.avgRating}</p>
-                <p className="recipe-difficulty">
-                  Svårighetsgrad: {calculateDifficulty(recipe.price)}
-                </p>
-                <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
-              </div>
-            </Link>
+            <Link to={`/recipe/${recipe._id}`} >
+            <RecipeCard key={recipe._id} recipe={recipe} />
+            </Link>  
           ))
         ) : searchQuery ? (
           <p>Inga recept hittades för "{searchQuery}"</p>
