@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Herosection.css";
 import { getAllRecipes, filterRecipes } from "../services/recipeService";
+import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
   //Input
@@ -11,6 +12,7 @@ function HeroSection() {
   const [results, setResults] = useState([]);
   //category
   const [allCategories, setAllCategories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllRecipes().then((data) => {
@@ -62,7 +64,7 @@ function HeroSection() {
           placeholder="Vad vill du baka idag?"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              globalThis.location.href = `/?search=${input}`;
+              navigate(`/?search=${input}`);
             }
           }}
         />
@@ -71,7 +73,7 @@ function HeroSection() {
           tabIndex={-1}
           onClick={() => {
             if (input) {
-              globalThis.location.href = `/?search=${input}`;
+              navigate(`/?search=${input}`);
             }
           }}
         >
@@ -87,18 +89,18 @@ function HeroSection() {
                   //clicking with mouse
                   onClick={() => {
                     if (result.type === "category") {
-                      globalThis.location.href = `/categories/${result.name}`;
+                      navigate(`/categories/${result.name}`);
                     } else {
-                      globalThis.location.href = `/recipe/${result._id}`;
+                      navigate(`/recipe/${result._id}`);
                     }
                   }}
                   //Pressing enter will search
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       if (result.type === "category") {
-                        globalThis.location.href = `/categories/${result.name}`;
+                        navigate(`/categories/${result.name}`);
                       } else {
-                        globalThis.location.href = `/recipe/${result._id}`;
+                        navigate(`/recipe/${result._id}`);
                       }
                     }
                   }}
