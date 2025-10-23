@@ -6,6 +6,7 @@ import {
 } from "../services/recipeService";
 import "./RecipeList.css";
 import RecipeCard from "./RecipeCard";
+import { Link } from "react-router-dom";
 
 function RecipeList() {
   const [recipes, setRecipes] = useState([]);
@@ -32,6 +33,7 @@ function RecipeList() {
       <div className="recipe-grid">
         {filteredRecipes.length > 0 ? (
           filteredRecipes.map((recipe) => (
+            <Link to={`/recipe/${recipe._id}`}>
             <RecipeCard key={recipe._id} recipe={recipe} />
           ))
         ) : searchQuery ? (

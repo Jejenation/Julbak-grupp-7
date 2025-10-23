@@ -12,6 +12,11 @@
 
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 .categories > a > img {
     width: 15rem;
 }
