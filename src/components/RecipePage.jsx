@@ -16,7 +16,7 @@ function RecipePage() {
             setSelectedRecipe(data); 
         })
         .catch(err => console.error('Fel vid hämtning:', err));
-    }, []);
+    }, [_id]);
 
     return (
         <div>
