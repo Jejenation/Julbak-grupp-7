@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './RecipePage.css';
-import { getAllRecipes, calculateDifficulty, rateRecipe, getRecipeWithId } from '../services/recipeService';
+import { calculateDifficulty, rateRecipe, getRecipeWithId } from '../services/recipeService';
 import { NavLink, useParams } from 'react-router-dom';
 
 function RecipePage() {
@@ -41,8 +41,9 @@ function RecipePage() {
             console.log("Selected recipe:", selectedRecipe);
             await rateRecipe(selectedRecipe._id, star);
     
-            setMessage("Betyg sparat!⭐");
-            await loadRecipe();
+            setMessage("Tack för ditt betyg!⭐");
+            //await loadRecipe();
+            //Kan behöva lägga till funktion för att hämta senaste versionen av receptet
         } catch (err) {
             console.error("Fel:", err);
             setMessage("Nätverksfel vid sparning.");
