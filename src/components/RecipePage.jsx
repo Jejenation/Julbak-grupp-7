@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import './RecipePage.css';
-import { getAllRecipes, calculateDifficulty } from '../services/recipeService';
+//import { getAllRecipes, calculateDifficulty } from '../services/recipeService';
 import { NavLink, useParams } from 'react-router-dom';
 import { getRecipeWithId } from '../services/recipeService';
 
 function RecipePage() {
-    const [activeCategory, setActiveCategory] = useState('');
+    //const [activeCategory, setActiveCategory] = useState('');
     const [selectedRecipe, setSelectedRecipe] = useState(null);
 
     const {_id} = useParams();
