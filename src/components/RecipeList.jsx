@@ -2,14 +2,11 @@ import { useState, useEffect } from "react";
 import { getAllRecipes } from "../services/recipeService";
 import "./RecipeList.css";
 import RecipeCard from "./RecipeCard";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 function RecipeList() {
   const [recipes, setRecipes] = useState([]);
-
-  //reading URL http://localhost:5173/?search=bullar
-  const searchParams = new URLSearchParams(window.location.search);
-  //search value from URL bullar
+  const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("search") || "";
 
   useEffect(() => {
