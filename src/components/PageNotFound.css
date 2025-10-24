@@ -1,0 +1,10 @@
+.page-not-found > h2 {
+    text-align: center;
+}
+.page-not-found > p {
+    text-align: center;
+}
+.page-not-found > p > a {
+    font-weight: bolder;
+    text-decoration: underline;
+}
