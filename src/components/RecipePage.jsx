@@ -10,6 +10,10 @@ function RecipePage() {
     const [saving, setSaving] = useState(false);
     const [message, setMessage] = useState('');
 
+    const [name, setName] = useState('');
+    const [comment, setComment] = useState('');
+    const [commentMessage, setcommentMessage] = useState('');
+
     /*const loadRecipe = async () => {
         try {
             const data = await getAllRecipes();
@@ -51,6 +55,21 @@ function RecipePage() {
             setSaving(false);
             setTimeout(() => setMessage(''), 5000);
         }
+    };
+
+    const handleCommentSubmit = (e) => {
+        e.preventDefault();
+
+        if (!name.trim() || !comment.trim()) {
+            setcommentMessage("Vänligen fyll i både namn och kommentar.");
+            return;
+        }
+
+        console.log("Kommentar skickad:", { name, comment});
+
+        setcommentMessage("Tack för din kommentar!");
+        setName('');
+        setComment('');
     };
 
     return (
@@ -177,17 +196,36 @@ function RecipePage() {
 
             {/* Comment field */}
             <div className="comment-section">
-                <h3>Kommentar</h3>
-                <textarea
-                className="comment-box"
-                placeholder="Lämna en kommentar"
-                ></textarea>
-                <button className="comment-button">Skicka kommentar</button>
+                <h3>Lämna en kommentar</h3>
+
+                <form className="comment-form" onSubmit={handleCommentSubmit}>
+                    <input
+                        type="text"
+                        className="comment-name"
+                        placeholder="Ditt namn"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
+
+                    <textarea
+                         className="comment-box"
+                         placeholder="Skriv din kommentar här..."
+                         value={comment}
+                         onChange={(e) => setComment(e.target.value)}
+                         required
+                    ></textarea>
+
+                    <button type="submit" className="comment-button">Skicka kommentar</button>         
+                
+                    {commentMessage && (<p className="rating-message">{commentMessage}</p>
+                    )}
+                </form>    
             </div>
-        </div>    
-        ) : (
+        </div>
+    ) : (
         <p>Laddar recept...</p>        
-        )}
+    )}
     </div>
     );
 }
