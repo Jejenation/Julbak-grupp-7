@@ -16,6 +16,7 @@ function RecipePage() {
 
     const [nameError, setNameError] = useState(false);
     const [commentError, setCommentError] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     /*const loadRecipe = async () => {
         try {
@@ -60,7 +61,7 @@ function RecipePage() {
         }
     };
 
-    const handleCommentSubmit = (e) => {
+    const handleCommentSubmit = async (e) => {
         e.preventDefault();
 
         const missingName = !name.trim();
@@ -75,13 +76,20 @@ function RecipePage() {
             return;
         }
 
+        setIsSubmitting(true);
+
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
         console.log("Kommentar skickad:", { name, comment});
 
-        setCommentMessage("Tack för din kommentar!");
         setName('');
         setComment('');
         setNameError(false);
         setCommentError(false);
+
+        setIsSubmitting(false);
+
+        setCommentMessage("Tack för din kommentar!");
 
         setTimeout(() => setCommentMessage(''), 5000);
     };
@@ -225,6 +233,7 @@ function RecipePage() {
                         placeholder="Ditt namn"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        disabled={isSubmitting}
                     />
 
                     <textarea
@@ -232,9 +241,12 @@ function RecipePage() {
                          placeholder="Skriv din kommentar här..."
                          value={comment}
                          onChange={(e) => setComment(e.target.value)}
+                         disabled={isSubmitting}
                     ></textarea>
 
-                    <button type="submit" className="comment-button">Skicka kommentar</button>         
+                    <button type="submit" className="comment-button" disabled={isSubmitting}>
+                        {isSubmitting ? "Skickar..." : "Skicka kommentar"}
+                    </button>         
                 </form>    
             </div>
         </div>
