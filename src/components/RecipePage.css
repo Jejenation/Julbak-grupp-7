@@ -216,3 +216,30 @@ body {
 .stars.clickable .star:hover {
     color: orange;
 }
+
+.error {
+    border: 2px solid red !important;
+    background-color: #FFF9F0;
+}
+
+.popup-message {
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeInOut 5s forwards;
+}
+
+.popup-message.error {
+    background-color: #ffebeb;
+    color: #b30000;
+    border: 1px solid #ff0000;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-5px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-5px); }
+}

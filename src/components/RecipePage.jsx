@@ -12,7 +12,10 @@ function RecipePage() {
 
     const [name, setName] = useState('');
     const [comment, setComment] = useState('');
-    const [commentMessage, setcommentMessage] = useState('');
+    const [commentMessage, setCommentMessage] = useState('');
+
+    const [nameError, setNameError] = useState(false);
+    const [commentError, setCommentError] = useState(false);
 
     /*const loadRecipe = async () => {
         try {
@@ -60,16 +63,27 @@ function RecipePage() {
     const handleCommentSubmit = (e) => {
         e.preventDefault();
 
-        if (!name.trim() || !comment.trim()) {
-            setcommentMessage("Vänligen fyll i både namn och kommentar.");
+        const missingName = !name.trim();
+        const missingComment = !comment.trim();
+
+        setNameError(missingName);
+        setCommentError(missingComment);
+
+        if (missingName || missingComment) {
+            setCommentMessage("Fyll i alla obligatoriska fält.");
+            setTimeout(() => setCommentMessage(""), 5000);
             return;
         }
 
         console.log("Kommentar skickad:", { name, comment});
 
-        setcommentMessage("Tack för din kommentar!");
+        setCommentMessage("Tack för din kommentar!");
         setName('');
         setComment('');
+        setNameError(false);
+        setCommentError(false);
+
+        setTimeout(() => setCommentMessage(''), 5000);
     };
 
     return (
@@ -198,28 +212,29 @@ function RecipePage() {
             <div className="comment-section">
                 <h3>Lämna en kommentar</h3>
 
+                {commentMessage && (
+                    <div className={`popup-message ${nameError || commentError ? 'error' : 'success'}`}>
+                        {commentMessage}
+                    </div>
+                )}
+
                 <form className="comment-form" onSubmit={handleCommentSubmit}>
                     <input
                         type="text"
-                        className="comment-name"
+                        className={`comment-name ${nameError ? 'error' : ''}`}
                         placeholder="Ditt namn"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        required
                     />
 
                     <textarea
-                         className="comment-box"
+                         className={`comment-box ${commentError ? 'error' : ''}`}
                          placeholder="Skriv din kommentar här..."
                          value={comment}
                          onChange={(e) => setComment(e.target.value)}
-                         required
                     ></textarea>
 
                     <button type="submit" className="comment-button">Skicka kommentar</button>         
-                
-                    {commentMessage && (<p className="rating-message">{commentMessage}</p>
-                    )}
                 </form>    
             </div>
         </div>
