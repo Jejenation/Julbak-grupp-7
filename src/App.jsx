@@ -1,4 +1,3 @@
-//import RecipePage from './components/RecipePage'
 //import RecipeList from './components/RecipeList'
 import Homepage from './components/Homepage'
 import Categorypage from './components/Categorypage'
@@ -8,6 +7,7 @@ import Julgodispage from './components/Categorypages/Julgodispage'
 import Kakorpage from './components/Categorypages/Kakorpage'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import RecipePage from './components/RecipePage'
+import PageNotFound from './components/PageNotFound'
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
     //<Julgodispage/> 
     //<Kakorpage/>
 
+    
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Homepage />} />
@@ -26,8 +27,10 @@ function App() {
         <Route path='/categories/julgodis' element={<Julgodispage />} />
         <Route path='/categories/kakor' element={<Kakorpage />} />
         <Route path='/recipe/:_id' element={<RecipePage />} />
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
+    
   )
 }
 

@@ -31,6 +31,25 @@ export function calculateDifficulty(price) {
     return difficulty;
 };
 
+export async function rateRecipe(recipeId, rating) {
+    const response = await fetch(`${API_BASE_URL}/recipes/${recipeId}/ratings`, {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify({ rating }),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to save rating');
+    }
+
+    try {
+        return await response.json();
+    } catch {
+        return null;
+    }
+}
 export function getIngredientCount(recipe) {
     if (!recipe || !recipe.ingredients) {
         return 0;
