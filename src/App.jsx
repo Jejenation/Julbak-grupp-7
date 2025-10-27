@@ -7,6 +7,7 @@ import Bullarpage from './components/Categorypages/Bullarpage'
 import Julgodispage from './components/Categorypages/Julgodispage'
 import Kakorpage from './components/Categorypages/Kakorpage'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import RecipePage from './components/RecipePage'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/categories/bullar' element={<Bullarpage />} />
         <Route path='/categories/julgodis' element={<Julgodispage />} />
         <Route path='/categories/kakor' element={<Kakorpage />} />
+        <Route path='/recipe/:_id' element={<RecipePage />} />
       </Routes>
     </BrowserRouter>
   )

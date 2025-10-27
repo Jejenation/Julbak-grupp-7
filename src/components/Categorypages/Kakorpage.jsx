@@ -1,4 +1,5 @@
 import RecipeInCategorypage from './RecipeInCategoryList';
+import { NavLink } from 'react-router-dom';
 
 function Kakorpage() {
     console.log('Kakorpage render');
@@ -8,10 +9,10 @@ function Kakorpage() {
             <header className="header">
                 <div className="logo">Julens Smaker</div>
                 <nav>
-                    <a href="/">Start</a>
-                    <a href="/categories/bullar">Bullar</a>
-                    <a href="/categories/kakor" className='chosen-page'>Kakor</a>
-                    <a href="/categories/julgodis">Julgodis</a>
+                    <NavLink to="/">Start</NavLink>
+                    <NavLink to="/categories/bullar">Bullar</NavLink>
+                    <NavLink to="/categories/kakor" className='chosen-page'>Kakor</NavLink>
+                    <NavLink to="/categories/julgodis">Julgodis</NavLink>
                 </nav>
             </header>
 
