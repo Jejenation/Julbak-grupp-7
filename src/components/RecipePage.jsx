@@ -55,7 +55,7 @@ function RecipePage() {
 
     return (
         <div>
-            <header className="recipe-header">
+            <header className="header-with-categories">
                 {/*<div className="logo">
                     <span className="site-title">Julens Smaker</span>
                 </div>

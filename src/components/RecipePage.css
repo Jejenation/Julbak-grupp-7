@@ -1,5 +1,5 @@
 /* ==== Header ==== */
-.recipe-header {
+/*.recipe-header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -9,7 +9,7 @@
     font-family: 'Playfair Display', serif;
     color: #2E1A07;
     gap: 40px;
-}
+} */
 
 .logo {
     display: flex;

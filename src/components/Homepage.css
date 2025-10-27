@@ -34,22 +34,45 @@ nav a {
     margin-left: auto;
 }
 
-.category-placeholder {
+/*.category-placeholder {
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin-left: 5rem;
     margin-right: 5rem;
-}
+}*/
 .category-placeholder > a {
     text-decoration: none;
     color: black;
 }
 
-
-
-
 body {
     background-color: #FFF9F0;
+}
+
+@media screen and (min-width:300px) {
+    .category-placeholder {
+        display: flex;
+        justify-content: space-around;
+    }
+    .category-placeholder > a > h2 {
+        font-size: medium;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .category-placeholder {
+        display: flex;
+        justify-content: space-around;
+    }
+    .category-placeholder > a > h2 {
+        font-size: large;
+    }
+}
+
+@media screen and (min-width: 667px) {
+    .category-placeholder > a > h2 {
+        font-size: x-large;
+    }
 }
