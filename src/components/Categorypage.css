@@ -9,7 +9,21 @@
     color: black;
     text-align: center;
     background-color: #FFF2DE;
+    border-radius: 10px;
+}
 
+.categories > img {
+    border-radius: 10px 10px 0 0;
+}
+
+.category-recipe-card {
+    img {
+        border-radius: 10px 0 0 10px;
+    }
+}
+
+.category-recipe-card-child {
+    border-radius: 0 10px 10px 0;
 }
 
 a {
@@ -104,7 +118,6 @@ h1  {
         display: flex;
         justify-content: space-around;
         flex-direction: row;
-
         a > img {
             width: 13rem;
         }
@@ -115,5 +128,5 @@ h1  {
     .categories > a > img  {
         width: 50vh;
         /* 20rem */
-    }
+    }   
 }
