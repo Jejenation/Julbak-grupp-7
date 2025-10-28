@@ -24,7 +24,7 @@ function RecipeInCategorypage(category) {
               <img src={recipe.imageUrl} alt={recipe.title} />
               <div className="category-recipe-card-child">
                 <h3>{recipe.title}</h3>
-                <p>Betyg: {recipe.avgRating}</p>
+                <p>Betyg: {recipe.avgRating ? recipe.avgRating.toFixed(1) : "0.0"}</p>
                 <p className="recipe-difficulty">
                   Svårighetsgrad: {calculateDifficulty(recipe.price)}
                 </p>
