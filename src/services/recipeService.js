@@ -81,3 +81,19 @@ export function countByCategory(recipes) {
     }
     return count;
 }
+
+//maybe implement to check comments
+export function sanitizeText(input) {
+  if (!input) return "";
+
+  const map = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#x27;",
+    "/": "&#x2F;",
+  };
+  const reg = /[&<>"'/]/gi;
+  return input.replace(reg, (match) => map[match]);
+}
