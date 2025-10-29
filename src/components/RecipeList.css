@@ -1,9 +1,9 @@
-.recipe-grid {
+/*.recipe-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 30px;
   gap: 20px;
-}
+}*/
 
 .recipe-time {
   font-size: 12px;
@@ -12,4 +12,28 @@
 
 .recipe-card h3 {
   font-size: 20px;
+}
+
+@media screen and (min-width: 344px) {
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (min-width:667px) {
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
 }

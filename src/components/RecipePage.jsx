@@ -56,7 +56,24 @@ function RecipePage() {
 
     return (
         <div>
-            <header className="recipe-header">
+
+            <header className="header-with-categories">
+                {/*<div className="logo">
+                    <span className="site-title">Julens Smaker</span>
+                </div>
+
+                <nav className="menu">
+                    {['Hem', 'Bullar', 'Kakor', 'Julgodis'].map((item) => (
+                        <span 
+                        key={item} 
+                        className={`menu-item ${activeCategory === item ? 'active' : ''}`}
+                        onClick={() => setActiveCategory(item)}
+                        >
+                            {item}
+                        </span>
+                    ))}
+                </nav> */}
+
                 <div className="logo">Julens Smaker</div>
                 <nav>
                     <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
