@@ -10,6 +10,14 @@ function RecipePage() {
     const [saving, setSaving] = useState(false);
     const [message, setMessage] = useState('');
 
+    const [name, setName] = useState('');
+    const [comment, setComment] = useState('');
+    const [commentMessage, setCommentMessage] = useState('');
+
+    const [nameError, setNameError] = useState(false);
+    const [commentError, setCommentError] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     /*const loadRecipe = async () => {
         try {
             const data = await getAllRecipes();
@@ -51,6 +59,39 @@ function RecipePage() {
             setSaving(false);
             setTimeout(() => setMessage(''), 5000);
         }
+    };
+
+    const handleCommentSubmit = async (e) => {
+        e.preventDefault();
+
+        const missingName = !name.trim();
+        const missingComment = !comment.trim();
+
+        setNameError(missingName);
+        setCommentError(missingComment);
+
+        if (missingName || missingComment) {
+            setCommentMessage("Fyll i alla obligatoriska fält.");
+            setTimeout(() => setCommentMessage(""), 5000);
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        console.log("Kommentar skickad:", { name, comment});
+
+        setName('');
+        setComment('');
+        setNameError(false);
+        setCommentError(false);
+
+        setIsSubmitting(false);
+
+        setCommentMessage("Tack för din kommentar!");
+
+        setTimeout(() => setCommentMessage(''), 5000);
     };
 
     return (
@@ -177,17 +218,41 @@ function RecipePage() {
 
             {/* Comment field */}
             <div className="comment-section">
-                <h3>Kommentar</h3>
-                <textarea
-                className="comment-box"
-                placeholder="Lämna en kommentar"
-                ></textarea>
-                <button className="comment-button">Skicka kommentar</button>
+                <h3>Lämna en kommentar</h3>
+
+                {commentMessage && (
+                    <div className={`popup-message ${nameError || commentError ? 'error' : 'success'}`}>
+                        {commentMessage}
+                    </div>
+                )}
+
+                <form className="comment-form" onSubmit={handleCommentSubmit}>
+                    <input
+                        type="text"
+                        className={`comment-name ${nameError ? 'error' : ''}`}
+                        placeholder="Ditt namn"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        disabled={isSubmitting}
+                    />
+
+                    <textarea
+                         className={`comment-box ${commentError ? 'error' : ''}`}
+                         placeholder="Skriv din kommentar här..."
+                         value={comment}
+                         onChange={(e) => setComment(e.target.value)}
+                         disabled={isSubmitting}
+                    ></textarea>
+
+                    <button type="submit" className="comment-button" disabled={isSubmitting}>
+                        {isSubmitting ? "Skickar..." : "Skicka kommentar"}
+                    </button>         
+                </form>    
             </div>
-        </div>    
-        ) : (
+        </div>
+    ) : (
         <p>Laddar recept...</p>        
-        )}
+    )}
     </div>
     );
 }
