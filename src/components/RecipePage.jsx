@@ -82,26 +82,38 @@ function RecipePage() {
                     <NavLink
                         to="/categories/bullar"
                         className={({ isActive }) => 
-                            (isActive || selectedRecipe?.categories?.[0] === "Bullar") ? "active" : ""
+                            isActive || selectedRecipe?.categories?.some(
+                                c => c.toLowerCase() === "bullar"
+                            )
+                                ? "active"
+                                : ""
                         }
                     >
-                        Bullar
+                      Bullar
                     </NavLink>
                     <NavLink
                         to="/categories/kakor"
                         className={({ isActive }) => 
-                            (isActive || selectedRecipe?.categories?.[0] === "Kakor") ? "active" : ""
+                            isActive || selectedRecipe?.categories?.some(
+                                c => c.toLowerCase() === "kakor"
+                            )
+                                ? "active"
+                                : ""
                         }
                     >
-                        Kakor
+                      Kakor
                     </NavLink>
                     <NavLink
                         to="/categories/julgodis"
                         className={({ isActive }) => 
-                            (isActive || selectedRecipe?.categories?.[0] === "Julgodis") ? "active" : ""
+                            isActive || selectedRecipe?.categories?.some(
+                                c => c.toLowerCase() === "julgodis"
+                            )
+                                ? "active"
+                                : ""
                         }
                     >
-                        Julgodis
+                      Julgodis
                     </NavLink>    
                 </nav>
             </header>

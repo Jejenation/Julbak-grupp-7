@@ -196,7 +196,7 @@ body {
     color: orange;
 }
 
-.recipe-header nav a.active {
+.header-with-categories nav a.active {
     color: orange;
     font-weight: bold;
     text-decoration: none;
