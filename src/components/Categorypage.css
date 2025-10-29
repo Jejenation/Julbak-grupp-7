@@ -59,6 +59,9 @@ h1 {
     display: flex;
     flex-direction: column;
     padding-bottom: 0.5rem;
+    img {
+      border-radius: 10px 10px 0 0;
+    }
   }
   .category-recipe-grid {
     display: flex;
@@ -69,7 +72,7 @@ h1 {
   }
   .nav-links {
     display: flex;
-    gap: 15%;
+    gap: 13%;
     padding-top: 1rem;
   }
   .header-with-categories {
@@ -80,15 +83,9 @@ h1 {
     width: 100%;
     border-radius: 10px;
   }
-
-  .category-recipe-card {
-    img {
-      border-radius: 10px 10px 0 0;
-    }
-  }
-
   .category-recipe-card-child {
     border-radius: 0 0 10px 10px;
+    width: auto;
   }  
 }
 
@@ -128,6 +125,7 @@ h1 {
 
   .category-recipe-card-child {
     border-radius: 0 10px 10px 0;
+    width: 100%;
   }  
 }
 
