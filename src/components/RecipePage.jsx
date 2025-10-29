@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import './RecipePage.css';
-import { calculateDifficulty, rateRecipe, getRecipeWithId } from '../services/recipeService';
+import { calculateDifficulty, rateRecipe, getRecipeWithId, getComments } from '../services/recipeService';
 import { NavLink, useParams } from 'react-router-dom';
+import CommentList from './CommentList';
 
 function RecipePage() {
     //const [activeCategory, setActiveCategory] = useState('');
@@ -9,6 +10,7 @@ function RecipePage() {
     const [rating, setRating] = useState(0);
     const [saving, setSaving] = useState(false);
     const [message, setMessage] = useState('');
+    const [comments, setComments] = useState([]);
 
     /*const loadRecipe = async () => {
         try {
@@ -29,6 +31,12 @@ function RecipePage() {
             setSelectedRecipe(data); 
         })
         .catch(err => console.error('Fel vid hämtning:', err));
+
+        //fetching comments
+        getComments(_id)
+        .then(data => {
+            setComments(data);
+        })
     }, [_id]);
 
     const handleRatingClick = async (star) => {
@@ -183,12 +191,15 @@ function RecipePage() {
                 placeholder="Lämna en kommentar"
                 ></textarea>
                 <button className="comment-button">Skicka kommentar</button>
+                
             </div>
+            <div className='comment-list'><CommentList comments={comments}/></div>
         </div>    
         ) : (
         <p>Laddar recept...</p>        
         )}
     </div>
+
     );
 }
 
