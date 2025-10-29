@@ -262,8 +262,6 @@ body {
     border-radius: 8px;
   }
 }
-    color: orange;
-}
 
 .header-with-categories nav a.active {
     color: orange;
