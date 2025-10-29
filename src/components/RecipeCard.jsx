@@ -9,7 +9,7 @@ function RecipeCard({ recipe }) {
     <div className="recipe-card">
       <img src={recipe.imageUrl} alt={recipe.title} />
       <h3>{recipe.title}</h3>
-      <p className="recipe-rating">Betyg: {recipe.avgRating ? recipe.avgRating.toFixed(1) : "0.0"}</p>
+      <p className="recipe-rating">Betyg: {Number(recipe.avgRating).toFixed(1)}</p>
       <p className="recipe-difficulty">
         Svårighetsgrad: {calculateDifficulty(recipe.price)}
       </p>
