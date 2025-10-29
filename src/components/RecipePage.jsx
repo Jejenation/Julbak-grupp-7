@@ -222,18 +222,9 @@ function RecipePage() {
                         </span>
                     </div>
                 </div>
-            //</div>    
+            </div>    
 
             {/* Comment field */}
-            /*<div className="comment-section">
-                <h3>Kommentar</h3>
-                <textarea
-                className="comment-box"
-                placeholder="Lämna en kommentar"
-                ></textarea>
-                <button className="comment-button">Skicka kommentar</button>
-            </div> */
-                    
                 <h3>Lämna en kommentar</h3>
 
                 {commentMessage && (
