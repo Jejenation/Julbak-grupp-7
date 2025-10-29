@@ -262,9 +262,12 @@ body {
     border-radius: 8px;
   }
 }
-    color: orange;
-}
 
+.header-with-categories nav a.active {
+    color: orange;
+    font-weight: bold;
+    text-decoration: none;
+}
 .error {
     border: 2px solid red !important;
     background-color: #FFF9F0;

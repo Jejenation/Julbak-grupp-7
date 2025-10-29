@@ -36,6 +36,7 @@ function RecipePage() {
     useEffect(() => {
         getRecipeWithId(_id)
         .then(data => {
+            console.log("Receptdata:", data);
             setSelectedRecipe(data); 
         })
         .catch(err => console.error('Fel vid hämtning:', err));
@@ -104,6 +105,7 @@ function RecipePage() {
 
     return (
         <div>
+
             <header className="header-with-categories">
                 {/*<div className="logo">
                     <span className="site-title">Julens Smaker</span>
@@ -120,12 +122,48 @@ function RecipePage() {
                         </span>
                     ))}
                 </nav> */}
+
                 <div className="logo">Julens Smaker</div>
                 <nav>
-                    <NavLink to="/">Start</NavLink>
-                    <NavLink to="/categories/bullar">Bullar</NavLink>
-                    <NavLink to="/categories/kakor">Kakor</NavLink>
-                    <NavLink to="/categories/julgodis">Julgodis</NavLink>
+                    <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
+                        Start
+                    </NavLink>
+                    <NavLink
+                        to="/categories/bullar"
+                        className={({ isActive }) => 
+                            isActive || selectedRecipe?.categories?.some(
+                                c => c.toLowerCase() === "bullar"
+                            )
+                                ? "active"
+                                : ""
+                        }
+                    >
+                      Bullar
+                    </NavLink>
+                    <NavLink
+                        to="/categories/kakor"
+                        className={({ isActive }) => 
+                            isActive || selectedRecipe?.categories?.some(
+                                c => c.toLowerCase() === "kakor"
+                            )
+                                ? "active"
+                                : ""
+                        }
+                    >
+                      Kakor
+                    </NavLink>
+                    <NavLink
+                        to="/categories/julgodis"
+                        className={({ isActive }) => 
+                            isActive || selectedRecipe?.categories?.some(
+                                c => c.toLowerCase() === "julgodis"
+                            )
+                                ? "active"
+                                : ""
+                        }
+                    >
+                      Julgodis
+                    </NavLink>    
                 </nav>
             </header>
 
