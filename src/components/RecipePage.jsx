@@ -264,7 +264,6 @@ function RecipePage() {
                         {isSubmitting ? "Skickar..." : "Skicka kommentar"}
                     </button>         
                 </form>    
-            </div>
             <div className='comment-list'><CommentList comments={comments}/></div>            
         </div>
     ) : (
