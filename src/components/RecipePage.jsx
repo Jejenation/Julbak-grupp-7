@@ -222,7 +222,7 @@ function RecipePage() {
                         </span>
                     </div>
                 </div>
-            </div>    
+            //</div>    
 
             {/* Comment field */}
             /*<div className="comment-section">
