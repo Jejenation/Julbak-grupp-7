@@ -225,18 +225,15 @@ function RecipePage() {
             </div>    
 
             {/* Comment field */}
-            <div className="comment-section">
+            /*<div className="comment-section">
                 <h3>Kommentar</h3>
                 <textarea
                 className="comment-box"
                 placeholder="Lämna en kommentar"
                 ></textarea>
                 <button className="comment-button">Skicka kommentar</button>
-                
-            </div>
-            <div className='comment-list'><CommentList comments={comments}/></div>
-        </div>    
-        ) : (
+            </div> */
+                    
                 <h3>Lämna en kommentar</h3>
 
                 {commentMessage && (
@@ -268,6 +265,7 @@ function RecipePage() {
                     </button>         
                 </form>    
             </div>
+            <div className='comment-list'><CommentList comments={comments}/></div>            
         </div>
     ) : (
         <p>Laddar recept...</p>        
