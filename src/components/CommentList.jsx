@@ -16,7 +16,7 @@ function CommentList({ comments }) {
               <div className="comment-name">
                 <strong>{comment.name}</strong>
                 <span className="comment-date">
-                  {new Date(comment.createdAt).toLocaleDateString("sv-SE", {
+                  {new Date(comment.date || comment.createdAt).toLocaleDateString("sv-SE", {
                     year: "numeric",
                     month: "numeric",
                     day: "numeric",

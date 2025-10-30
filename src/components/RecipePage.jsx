@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './RecipePage.css';
-import { calculateDifficulty, rateRecipe, getRecipeWithId, getComments } from '../services/recipeService';
+import { calculateDifficulty, rateRecipe, getRecipeWithId, getComments, postComment } from '../services/recipeService';
 import { NavLink, useParams } from 'react-router-dom';
 import CommentList from './CommentList';
 
@@ -87,20 +87,20 @@ function RecipePage() {
 
         setIsSubmitting(true);
 
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        try {
+            const newComment = await postComment(_id, name, comment);
+            setComments((prev) => [...prev, newComment]);
 
-        console.log("Kommentar skickad:", { name, comment});
-
-        setName('');
-        setComment('');
-        setNameError(false);
-        setCommentError(false);
-
-        setIsSubmitting(false);
-
-        setCommentMessage("Tack för din kommentar!");
-
-        setTimeout(() => setCommentMessage(''), 5000);
+            setName('');
+            setComment('');
+            setCommentMessage("Tack för din kommentar!");
+        } catch (error) {
+            console.error("Fel vid skickande:", error);
+            setCommentMessage("Kunde inte spara kommentaren. Försök igen.");
+        } finally {
+            setIsSubmitting(false);
+            setTimeout(() => setCommentMessage(""), 5000);
+        }
     };
 
     return (
