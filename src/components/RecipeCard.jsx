@@ -1,7 +1,6 @@
 import "./RecipeCard.css";
 import {
   calculateDifficulty,
-  getIngredientCount,
 } from "../services/recipeService";
 import PropTypes from "prop-types";
 
