@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import './RecipePage.css';
-import { calculateDifficulty, rateRecipe, getRecipeWithId, getComments } from '../services/recipeService';
+import { calculateDifficulty, rateRecipe, getRecipeWithId, getComments, postComment } from '../services/recipeService';
 import { NavLink, useParams } from 'react-router-dom';
 import CommentList from './CommentList';
 
 function RecipePage() {
-    //const [activeCategory, setActiveCategory] = useState('');
     const [selectedRecipe, setSelectedRecipe] = useState(null);
     const [rating, setRating] = useState(0);
     const [saving, setSaving] = useState(false);
@@ -19,17 +18,6 @@ function RecipePage() {
     const [nameError, setNameError] = useState(false);
     const [commentError, setCommentError] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-
-    /*const loadRecipe = async () => {
-        try {
-            const data = await getAllRecipes();
-            const recipe = data[0];
-            setSelectedRecipe(recipe);
-            console.log("Loaded recipe:", recipe)
-        } catch (err) {
-            console.error('Fel vid hämtning:', err);
-        }
-    }; */
 
     const {_id} = useParams();
 
@@ -87,42 +75,26 @@ function RecipePage() {
 
         setIsSubmitting(true);
 
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        try {
+            const newComment = await postComment(_id, name, comment);
+            setComments((prev) => [...prev, newComment]);
 
-        console.log("Kommentar skickad:", { name, comment});
-
-        setName('');
-        setComment('');
-        setNameError(false);
-        setCommentError(false);
-
-        setIsSubmitting(false);
-
-        setCommentMessage("Tack för din kommentar!");
-
-        setTimeout(() => setCommentMessage(''), 5000);
+            setName('');
+            setComment('');
+            setCommentMessage("Tack för din kommentar!");
+        } catch (error) {
+            console.error("Fel vid skickande:", error);
+            setCommentMessage("Kunde inte spara kommentaren. Försök igen.");
+        } finally {
+            setIsSubmitting(false);
+            setTimeout(() => setCommentMessage(""), 5000);
+        }
     };
 
     return (
         <div>
 
             <header className="header-with-categories">
-                {/*<div className="logo">
-                    <span className="site-title">Julens Smaker</span>
-                </div>
-
-                <nav className="menu">
-                    {['Hem', 'Bullar', 'Kakor', 'Julgodis'].map((item) => (
-                        <span 
-                        key={item} 
-                        className={`menu-item ${activeCategory === item ? 'active' : ''}`}
-                        onClick={() => setActiveCategory(item)}
-                        >
-                            {item}
-                        </span>
-                    ))}
-                </nav> */}
-
                 <div className="logo">Julens Smaker</div>
                 <nav>
                     <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
@@ -222,9 +194,8 @@ function RecipePage() {
     
                     <div className="stars clickable" aria-label="rating">
                             {[1, 2, 3, 4, 5].map((star) => (
-                            <span
+                            <button
                             key={star}
-                            role="button"
                             tabIndex={0}
                             className={star <= rating ? 'star filled' : 'star'}
                             onClick={() => handleRatingClick(star)}
@@ -232,7 +203,7 @@ function RecipePage() {
                                     if (e.key === 'Enter' || e.key === ' ') handleRatingClick(star); }}
                             >
                                 ★
-                            </span>
+                            </button>
                         ))}
                     </div>
                     {saving && <p className="rating-message">Sparar betyg...</p>}
