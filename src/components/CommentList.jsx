@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./CommentList.css";
-import
+import PropTypes from 'prop-types'
 
 function CommentList({ comments }) {
   const [showAll, setShowAll] = useState(false);
@@ -41,5 +41,16 @@ function CommentList({ comments }) {
     </div>
   );
 }
+
+CommentList.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      comment: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      createdAt: PropTypes.string.isRequired
+    })
+  ).isRequired
+};
 
 export default CommentList;
