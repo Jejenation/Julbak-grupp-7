@@ -29,7 +29,7 @@ RecipeCard.propTypes = {
     avgRating: PropTypes.number,
     price: PropTypes.number,
     timeInMins: PropTypes.number,
-    ingredients: PropTypes.array,
+    /*ingredients: PropTypes.array,*/
   }).isRequired,
 };
 
