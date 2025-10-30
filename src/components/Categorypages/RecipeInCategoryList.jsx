@@ -20,7 +20,6 @@ function RecipeInCategorypage(category) {
         {recipes.map((recipe) => (
           <Link to={`/recipe/${recipe._id}`} className="link-style">
             <div key={recipe._id} className="category-recipe-card">
-              {/*<h1 className="recipe-category-title">{recipe.categories}</h1>*/}
               <img src={recipe.imageUrl} alt={recipe.title} />
               <div className="category-recipe-card-child">
                 <h3>{recipe.title}</h3>
