@@ -17,10 +17,15 @@ export const getRecipeWithId = async (recipeId) => {
 }
 
 export const getComments = async (recipeId) => {
-    const res = await fetch (`${API_BASE_URL}/recipes/${recipeId}/comments`)
-    if (!res.ok) throw new Error('Failed to fetch comments');
-    return res.json();
-}
+    try {
+        const res = await fetch(`${API_BASE_URL}/recipes/${recipeId}/comments`);
+        if (!res.ok) throw new Error('Failed to fetch comments');
+        return res.json();
+    } catch (error) {
+        console.error('Error fetching comments:', error);
+        return [];
+    }
+};
 
 //To be able to save difficulty in the API we use 'price', 
 // because there where no variable for difficulty and we do not need price
@@ -96,4 +101,27 @@ export function sanitizeText(input) {
   };
   const reg = /[&<>"'/]/gi;
   return input.replace(reg, (match) => map[match]);
+}
+
+export async function postComment(recipeId, name, comment) {
+    try {
+        const res = await fetch (`${API_BASE_URL}/recipes/${recipeId}/comments`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: name,
+                comment: comment,
+                date: new Date().toISOString(),
+            }),
+        });
+
+        if (!res.ok) throw new Error('Failed to post comment');
+
+        return res.json();
+    } catch (err) {
+        console.error('Error posting comment:', err);
+        throw err;
+    }
 }
