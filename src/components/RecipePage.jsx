@@ -5,7 +5,6 @@ import { NavLink, useParams } from 'react-router-dom';
 import CommentList from './CommentList';
 
 function RecipePage() {
-    //const [activeCategory, setActiveCategory] = useState('');
     const [selectedRecipe, setSelectedRecipe] = useState(null);
     const [rating, setRating] = useState(0);
     const [saving, setSaving] = useState(false);
@@ -19,17 +18,6 @@ function RecipePage() {
     const [nameError, setNameError] = useState(false);
     const [commentError, setCommentError] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-
-    /*const loadRecipe = async () => {
-        try {
-            const data = await getAllRecipes();
-            const recipe = data[0];
-            setSelectedRecipe(recipe);
-            console.log("Loaded recipe:", recipe)
-        } catch (err) {
-            console.error('Fel vid hämtning:', err);
-        }
-    }; */
 
     const {_id} = useParams();
 
@@ -107,22 +95,6 @@ function RecipePage() {
         <div>
 
             <header className="header-with-categories">
-                {/*<div className="logo">
-                    <span className="site-title">Julens Smaker</span>
-                </div>
-
-                <nav className="menu">
-                    {['Hem', 'Bullar', 'Kakor', 'Julgodis'].map((item) => (
-                        <span 
-                        key={item} 
-                        className={`menu-item ${activeCategory === item ? 'active' : ''}`}
-                        onClick={() => setActiveCategory(item)}
-                        >
-                            {item}
-                        </span>
-                    ))}
-                </nav> */}
-
                 <div className="logo">Julens Smaker</div>
                 <nav>
                     <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
@@ -222,9 +194,8 @@ function RecipePage() {
     
                     <div className="stars clickable" aria-label="rating">
                             {[1, 2, 3, 4, 5].map((star) => (
-                            <span
+                            <button
                             key={star}
-                            role="button"
                             tabIndex={0}
                             className={star <= rating ? 'star filled' : 'star'}
                             onClick={() => handleRatingClick(star)}
@@ -232,7 +203,7 @@ function RecipePage() {
                                     if (e.key === 'Enter' || e.key === ' ') handleRatingClick(star); }}
                             >
                                 ★
-                            </span>
+                            </button>
                         ))}
                     </div>
                     {saving && <p className="rating-message">Sparar betyg...</p>}
