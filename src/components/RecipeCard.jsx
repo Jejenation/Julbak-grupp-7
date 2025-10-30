@@ -3,13 +3,16 @@ import {
   calculateDifficulty,
   getIngredientCount,
 } from "../services/recipeService";
+import PropTypes from "prop-types";
 
 function RecipeCard({ recipe }) {
   return (
     <div className="recipe-card">
       <img src={recipe.imageUrl} alt={recipe.title} />
       <h3>{recipe.title}</h3>
-      <p className="recipe-rating">Betyg: {Number(recipe.avgRating).toFixed(1)}</p>
+      <p className="recipe-rating">
+        Betyg: {Number(recipe.avgRating).toFixed(1)}
+      </p>
       <p className="recipe-difficulty">
         Svårighetsgrad: {calculateDifficulty(recipe.price)}
       </p>
@@ -20,5 +23,15 @@ function RecipeCard({ recipe }) {
     </div>
   );
 }
+RecipeCard.propTypes = {
+  recipe: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string,
+    avgRating: PropTypes.number,
+    price: PropTypes.number,
+    timeInMins: PropTypes.number,
+    ingredients: PropTypes.array,
+  }).isRequired,
+};
 
 export default RecipeCard;
