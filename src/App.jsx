@@ -5,7 +5,7 @@ import './App.css'
 import Bullarpage from './components/Categorypages/Bullarpage'
 import Julgodispage from './components/Categorypages/Julgodispage'
 import Kakorpage from './components/Categorypages/Kakorpage'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import RecipePage from './components/RecipePage'
 import PageNotFound from './components/PageNotFound'
 

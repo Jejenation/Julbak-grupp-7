@@ -7,7 +7,7 @@ h3 {
     font-family:var(--font-heading);
 }
 
-.comment {
+.comment-list {
     padding: 5px;
     list-style: none;
     border: #E8DCC9;
@@ -17,18 +17,18 @@ h3 {
     font-family:var(--font-body);
 }
 
-.comment-name {
+.comment-name-list {
     display: flex;
     justify-content: space-between;
 }
 
-.comment-date {
+.comment-date-list {
     display: flex;
     justify-content: right;
     height: auto;
 }
 
-.show-more-button {
+.show-more-button-list {
     display: block;
     margin: 15px auto;
     cursor: pointer;
@@ -43,7 +43,7 @@ h3 {
 }
 
 @media (hover: hover) {
-    .show-more-button:hover {
+    .show-more-button-list:hover {
         background-color:#A62300;
     }
 }
