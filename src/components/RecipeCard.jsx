@@ -17,9 +17,9 @@ function RecipeCard({ recipe }) {
         Svårighetsgrad: {calculateDifficulty(recipe.price)}
       </p>
       <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
-      <p className="recipe-ingredients">
+      {/*<p className="recipe-ingredients">
         Ingredienser: {getIngredientCount(recipe)}
-      </p>
+      </p> */}
     </div>
   );
 }

@@ -9,7 +9,7 @@ function Kakorpage() {
             <header className="header-with-categories">
                 <div className="logo">Julens Smaker</div>
                 <nav className='nav-links'>
-                    <NavLink to="/">Start</NavLink>
+                    <NavLink to="/">Hem</NavLink>
                     <NavLink to="/categories/bullar">Bullar</NavLink>
                     <NavLink to="/categories/kakor" className='chosen-page'>Kakor</NavLink>
                     <NavLink to="/categories/julgodis">Julgodis</NavLink>

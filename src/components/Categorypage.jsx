@@ -10,7 +10,7 @@ function Categorypage() {
             <header className="header">
                 <div className="logo">Julens Smaker</div>
                 <nav>
-                    <NavLink to="/">Start</NavLink>
+                    <NavLink to="/">Hem</NavLink>
                     <NavLink to="/categories" className='chosen-page'>Kategorier</NavLink>
                 </nav>
             </header>

@@ -9,7 +9,7 @@ function Julgodispage() {
             <header className="header-with-categories">
                 <div className="logo">Julens Smaker</div>
                 <nav className='nav-links'>
-                    <NavLink to="/">Start</NavLink>
+                    <NavLink to="/">Hem</NavLink>
                     <NavLink to="/categories/bullar">Bullar</NavLink>
                     <NavLink to="/categories/kakor">Kakor</NavLink>
                     <NavLink to="/categories/julgodis" className='chosen-page'>Julgodis</NavLink>
