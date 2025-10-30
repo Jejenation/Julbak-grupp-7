@@ -12,7 +12,7 @@ function RecipeList() {
   useEffect(() => {
     getAllRecipes()
       .then((data) => setRecipes(data))
-      .catch((errMsg) => console.error("Error:", errMsg));
+      .catch((error_) => console.error("Error:", error_));
   }, []);
 
   const filteredRecipes = searchQuery

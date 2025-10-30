@@ -62,7 +62,7 @@ export async function rateRecipe(recipeId, rating) {
     }
 }
 export function getIngredientCount(recipe) {
-    if (!recipe || !recipe.ingredients) {
+    if (!recipe?.ingredients) {
         return 0;
     }
     return recipe.ingredients.length;
@@ -100,7 +100,7 @@ export function sanitizeText(input) {
     "/": "&#x2F;",
   };
   const reg = /[&<>"'/]/gi;
-  return input.replace(reg, (match) => map[match]);
+  return input.replaceAll(reg, (match) => map[match]);
 }
 
 export async function postComment(recipeId, name, comment) {
