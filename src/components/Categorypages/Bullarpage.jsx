@@ -9,7 +9,7 @@ function Bullarpage() {
             <header className="header-with-categories">
                 <div className="logo">Julens Smaker</div>
                 <nav className='nav-links'>
-                    <NavLink to="/">Start</NavLink>
+                    <NavLink to="/">Hem</NavLink>
                     <NavLink to="/categories/bullar" className='chosen-page'>Bullar</NavLink>
                     <NavLink to="/categories/kakor">Kakor</NavLink>
                     <NavLink to="/categories/julgodis">Julgodis</NavLink>

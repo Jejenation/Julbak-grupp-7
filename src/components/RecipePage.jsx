@@ -98,7 +98,7 @@ function RecipePage() {
                 <div className="logo">Julens Smaker</div>
                 <nav>
                     <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
-                        Start
+                        Hem
                     </NavLink>
                     <NavLink
                         to="/categories/bullar"

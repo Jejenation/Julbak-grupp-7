@@ -1,7 +1,6 @@
 import "./RecipeCard.css";
 import {
   calculateDifficulty,
-  getIngredientCount,
 } from "../services/recipeService";
 import PropTypes from "prop-types";
 
@@ -17,9 +16,9 @@ function RecipeCard({ recipe }) {
         Svårighetsgrad: {calculateDifficulty(recipe.price)}
       </p>
       <p className="recipe-time">Tid: {recipe.timeInMins} min</p>
-      <p className="recipe-ingredients">
+      {/*<p className="recipe-ingredients">
         Ingredienser: {getIngredientCount(recipe)}
-      </p>
+      </p> */}
     </div>
   );
 }
@@ -30,7 +29,7 @@ RecipeCard.propTypes = {
     avgRating: PropTypes.number,
     price: PropTypes.number,
     timeInMins: PropTypes.number,
-    ingredients: PropTypes.array,
+    /*ingredients: PropTypes.array,*/
   }).isRequired,
 };
 

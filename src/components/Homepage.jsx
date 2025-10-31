@@ -21,7 +21,7 @@ function Homepage() {
             <header className="header">
                 <div className="logo">Julens Smaker</div>
                 <nav>
-                    <NavLink to="/" className='chosen-page'>Start</NavLink>
+                    <NavLink to="/" className='chosen-page'>Hem</NavLink>
                     <NavLink to="/categories">Kategorier</NavLink>
                 </nav>
             </header>
