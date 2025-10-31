@@ -53,6 +53,13 @@ body {
     }
 }
 
+@media screen and (max-width: 360px) {
+    nav {
+        padding-left: 0;
+        gap: 1.5rem;
+    }
+}
+
 @media screen and (min-width: 375px) {
     .category-placeholder {
         display: flex;
