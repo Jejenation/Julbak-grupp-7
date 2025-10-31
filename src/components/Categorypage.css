@@ -50,11 +50,11 @@ h1 {
   .nav-links {
     display: flex;
     gap: 13%;
-    padding-top: 1rem;
   }
   .header-with-categories {
     display: grid;
-    gap: 2rem;
+    padding: 15px;
+    gap: 40px;
   }
   .categories > a > img {
     width: 100%;
