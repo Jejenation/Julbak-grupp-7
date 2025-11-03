@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 
-import HomePage from "../components/HomePage";
+import HomePage from "../components/Homepage.jsx";
 vi.mock("../services/recipeService", () => ({
   getAllRecipes: vi.fn().mockResolvedValue([
     {
