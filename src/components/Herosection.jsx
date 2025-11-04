@@ -10,12 +10,10 @@ function HeroSection() {
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    getAllRecipes().then((data) => {
       const searchQuery = searchParams.get('search');
       if (searchQuery) {
         setInput(searchQuery);
       }
-      });
   }, [searchParams]);
 
   const handleSearch = (e) => {
