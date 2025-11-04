@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
 import "./Herosection.css";
-import { getAllRecipes } from "../services/recipeService";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 function HeroSection() {
-
   const [input, setInput] = useState("");
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-      const searchQuery = searchParams.get('search');
-      if (searchQuery) {
-        setInput(searchQuery);
-      }
+    const searchQuery = searchParams.get("search");
+    if (searchQuery) {
+      setInput(searchQuery);
+    }
   }, [searchParams]);
 
   const handleSearch = (e) => {
@@ -21,10 +19,10 @@ function HeroSection() {
   };
 
   const performSearch = () => {
-    if(input) {
+    if (input) {
       navigate(`/?search=${input}`);
     } else {
-      navigate('/');
+      navigate("/");
     }
   };
 
@@ -44,10 +42,7 @@ function HeroSection() {
             }
           }}
         />
-        <button
-          className="search-button"
-          onClick={performSearch}
-        >
+        <button className="search-button" onClick={performSearch}>
           Sök
         </button>
       </div>
