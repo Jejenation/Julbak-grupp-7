@@ -210,62 +210,49 @@ function RecipePage() {
                     {message && <p className="rating-message">{message}</p>}
 
                     <div className="average-rating">
-                        <h4>Genomsnittligt betyg:</h4>
-                            <div className="stars">
-                            {[1, 2, 3, 4, 5].map((star) => (
-                                <span
-                                key={star}
-                                className={
-                                    selectedRecipe.avgRating >= star
-                                    ? 'star filled'
-                                    : selectedRecipe.avgRating >= star - 0.5
-                                    ? 'star half'
-                                    : 'star'
-                                }
-                            >
-                                ★
+                        <h3>Genomsnittligt betyg:</h3>
+                        <div className="recipe-rating-display">
+                            <span className="star filled">★</span>
+                            <span className="rating number">
+                              {selectedRecipe.avgRating ? selectedRecipe.avgRating.toFixed(1) : "0.0"} 
                             </span>
-                        ))}
-                        <span className="rating-number">
-                            ({selectedRecipe.avgRating ? selectedRecipe.avgRating.toFixed(1) : "0"})
-                        </span>
+                        </div>
                     </div>
-                </div>
-            </div>    
+                </div>    
 
             {/* Comment field */}
-                <h3>Lämna en kommentar</h3>
+            <h3>Lämna en kommentar</h3>
 
-                {commentMessage && (
-                    <div className={`popup-message ${nameError || commentError ? 'error' : 'success'}`}>
-                        {commentMessage}
-                    </div>
-                )}
+            {commentMessage && (
+                <div className={`popup-message ${nameError || commentError ? 'error' : 'success'}`}>
+                    {commentMessage}
+                </div>
+            )}
 
-                <form className="comment-form" onSubmit={handleCommentSubmit}>
-                    <input
-                        type="text"
-                        className={`comment-name ${nameError ? 'error' : ''}`}
-                        placeholder="Ditt namn"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        disabled={isSubmitting}
-                    />
+            <form className="comment-form" onSubmit={handleCommentSubmit}>
+                <input
+                    type="text"
+                    className={`comment-name ${nameError ? 'error' : ''}`}
+                    placeholder="Ditt namn"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    disabled={isSubmitting}
+                />
 
-                    <textarea
-                         className={`comment-box ${commentError ? 'error' : ''}`}
-                         placeholder="Skriv din kommentar här..."
-                         value={comment}
-                         onChange={(e) => setComment(e.target.value)}
-                         disabled={isSubmitting}
-                    ></textarea>
+                <textarea
+                    className={`comment-box ${commentError ? 'error' : ''}`}
+                    placeholder="Skriv din kommentar här..."
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    disabled={isSubmitting}
+                ></textarea>
 
-                    <button type="submit" className="comment-button" disabled={isSubmitting}>
-                        {isSubmitting ? "Skickar..." : "Skicka kommentar"}
-                    </button>         
-                </form>    
-            <div className='comment-list'><CommentList comments={comments}/></div>            
-        </div>
+                <button type="submit" className="comment-button" disabled={isSubmitting}>
+                    {isSubmitting ? "Skickar..." : "Skicka kommentar"}
+                </button>         
+            </form>    
+        <div className='comment-list'><CommentList comments={comments}/></div>            
+    </div>
     ) : (
         <p>Laddar recept...</p>        
     )}

@@ -20,3 +20,9 @@ h3 {
   object-fit: cover;
   border-radius: 10px 10px 0 0;
 }
+
+.recipe-rating {
+  font-size: 0.95rem;
+  margin: 4px 0;
+  font-family: "Inter", sans-serif;
+}
