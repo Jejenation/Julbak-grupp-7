@@ -26,8 +26,8 @@ function RecipeList() {
       <div className="recipe-grid">
         {filteredRecipes.length > 0 ? (
           filteredRecipes.map((recipe) => (
-            <Link to={`/recipe/${recipe._id}`} >
-            <RecipeCard key={recipe._id} recipe={recipe} />
+            <Link key={recipe._id} to={`/recipe/${recipe._id}`} >
+            <RecipeCard  recipe={recipe} />
             </Link>  
           ))
         ) : searchQuery ? (
