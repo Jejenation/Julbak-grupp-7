@@ -8,7 +8,7 @@ test('homepage shows recipe cards and categories', async ({page}) => {
     const recipeCards = page.locator(".recipe-card");
     await expect(recipeCards.first()).toBeVisible();
 
-    await expect(page.locator('text=/Bullar \\(\\d+\\)/')).toBeVisible({timeout: 10000});
+    await expect(page.locator('text=/Bullar \\(\\d+\\)/')).toBeVisible({timeout: 1000});
     await expect(page.locator('text=/Julgodis \\(\\d+\\)/')).toBeVisible();
     await expect(page.locator('text=/Kakor \\(\\d+\\)/')).toBeVisible();
 
