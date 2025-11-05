@@ -2,7 +2,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Homepage from "../components/Homepage";
-import { vi } from "vitest";
+import { vi, it, expect, describe } from "vitest";
 import "@testing-library/jest-dom";
 
 // Mocka recipeService direkt inline för att undvika hoisting-problem
