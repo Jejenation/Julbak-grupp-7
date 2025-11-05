@@ -3,8 +3,8 @@ import { render, screen } from "@testing-library/react";
 import RecipeList from "../components/RecipeList.jsx";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
-import { describe } from "node:test";
-import { expect } from "vitest";
+
+import { describe, it, expect, vi } from "vitest";
 
 vi.mock("../components/RecipeCard.jsx", () => ({
     default: ({ recipe }) => <div>{recipe.title}</div>
