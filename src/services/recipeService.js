@@ -27,6 +27,12 @@ export const getComments = async (recipeId) => {
     }
 };
 
+export const getCategoryCountFromRecipes = async () => {
+    const res = await fetch(`${API_BASE_URL}/categories`);
+    if(!res.ok) throw new Error('Failed to fetch categories');
+    return res.json();
+}
+
 //To be able to save difficulty in the API we use 'price', 
 // because there where no variable for difficulty and we do not need price
 export function calculateDifficulty(price) {

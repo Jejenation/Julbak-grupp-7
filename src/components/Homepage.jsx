@@ -2,7 +2,7 @@ import RecipeList from "./RecipeList";
 import HeroSection from "./Herosection";
 import "./Homepage.css";
 import { useEffect, useState } from "react";
-import { countByCategory, getAllRecipes } from "../services/recipeService";
+import { getCategoryCountFromRecipes } from "../services/recipeService";
 import { NavLink, Link, useSearchParams } from "react-router-dom";
 
 function Homepage() {
@@ -17,9 +17,12 @@ function Homepage() {
     setLoading(true);
     setError(null);
 
-    getAllRecipes()
+    getCategoryCountFromRecipes()
       .then((data) => {
-        const count = countByCategory(data);
+        const count = {};
+        data.forEach(cat => {
+          count[cat.name] = cat.count
+        })
         setCategoryCount(count);
         setError(null);
       })
