@@ -1,13 +1,10 @@
 import { useState, useEffect } from "react";
-import { getAllRecipes } from "../services/recipeService";
+import { getAllRecipes, filterRecipes } from "../services/recipeService";
 import "./RecipeList.css";
 import RecipeCard from "./RecipeCard";
-import { Link, useSearchParams } from "react-router-dom";
 
-function RecipeList() {
+function RecipeList({ searchQuery = "" }) {
   const [recipes, setRecipes] = useState([]);
-  const [searchParams] = useSearchParams();
-  const searchQuery = searchParams.get("search") || "";
 
   useEffect(() => {
     getAllRecipes()
@@ -15,20 +12,16 @@ function RecipeList() {
       .catch((error_) => console.error("Error:", error_));
   }, []);
 
-  const filteredRecipes = searchQuery
-    ? recipes.filter((recipe) =>
-        recipe.title.toLowerCase().includes(searchQuery.toLocaleLowerCase())
-      )
+  const displayedRecipes = searchQuery
+    ? filterRecipes(recipes, searchQuery)
     : recipes;
 
   return (
     <div>
       <div className="recipe-grid">
-        {filteredRecipes.length > 0 ? (
-          filteredRecipes.map((recipe) => (
-            <Link to={`/recipe/${recipe._id}`} >
+        {displayedRecipes.length > 0 ? (
+          displayedRecipes.map((recipe) => (
             <RecipeCard key={recipe._id} recipe={recipe} />
-            </Link>  
           ))
         ) : searchQuery ? (
           <p>Inga recept hittades för "{searchQuery}"</p>

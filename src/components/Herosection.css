@@ -27,7 +27,7 @@
   max-height: 350px;
   overflow: hidden;
 }
-
+/*
 .hero-suggestions {
   position: absolute;
   background: white;
@@ -43,4 +43,4 @@
 
 .hero-suggestions li:hover {
   background-color: rgb(97, 97, 238);
-}
+} */
