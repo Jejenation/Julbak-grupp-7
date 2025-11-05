@@ -5,16 +5,49 @@ import RecipeCard from "./RecipeCard";
 
 function RecipeList({ searchQuery = "" }) {
   const [recipes, setRecipes] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const fetchRecipes = () => {
+    setLoading(true);
+    setError(null);
+
+    getAllRecipes()
+      .then((data) => {
+        setRecipes(data);
+        setError(null);
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        setError("Kunde inte ladda recept.. ");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   useEffect(() => {
-    getAllRecipes()
-      .then((data) => setRecipes(data))
-      .catch((error_) => console.error("Error:", error_));
+    fetchRecipes();
   }, []);
 
   const displayedRecipes = searchQuery
     ? filterRecipes(recipes, searchQuery)
     : recipes;
+
+  if (error) {
+    return (
+      <div className="error-container">
+        <p className="error-msg">{error}</p>
+        <button onClick={fetchRecipes} className="retry-btn">
+          Försök igen
+        </button>
+      </div>
+    );
+  }
+
+  if (loading) {
+    return <p>Väntar på recept...</p>;
+  }
 
   return (
     <div>
