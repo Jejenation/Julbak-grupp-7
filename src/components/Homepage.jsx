@@ -54,13 +54,13 @@ function Homepage() {
     return (
       <div className="category-placeholder">
         <Link to="/categories/bullar">
-          <h2>Bullar ({categoryCount.Bullar || 0})</h2>
+          <h2>Bullar ({categoryCount?.Bullar || 0})</h2>
         </Link>
         <Link to="/categories/kakor">
-          <h2>Kakor ({categoryCount.Kakor || 0})</h2>
+          <h2>Kakor ({categoryCount?.Kakor || 0})</h2>
         </Link>
         <Link to="/categories/julgodis">
-          <h2>Julgodis ({categoryCount.Julgodis || 0})</h2>
+          <h2>Julgodis ({categoryCount?.Julgodis || 0})</h2>
         </Link>
       </div>
     );
