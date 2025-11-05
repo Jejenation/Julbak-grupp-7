@@ -1,3 +1,4 @@
+/* eslint-env vitest */
 import { render, screen } from "@testing-library/react";
 import RecipeList from "../components/RecipeList.jsx";
 import { BrowserRouter } from "react-router-dom";
