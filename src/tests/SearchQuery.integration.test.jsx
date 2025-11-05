@@ -25,7 +25,7 @@ vi.mock("../services/recipeService", () => ({
 }));
 
 describe("Integration Test: URL-parameter q sanitiseras och UI fungerar", () => {
-    it("ingonerar skadliga script-taggar i URL-parametern och laddar sidan utan att krascha", async () => {
+    it("Ignonerar skadliga script-taggar i URL-parametern och laddar sidan utan att krascha", async () => {
         render(
             <MemoryRouter initialEntries={["/?q=<script>alert(1)</script>"]}>
                 <Routes>
