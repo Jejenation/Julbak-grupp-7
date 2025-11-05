@@ -36,6 +36,11 @@ vi.mock("../services/recipeService", () => ({
       categories: ["Kakor"],
     },
   ]),
+  getCategoryCountFromRecipes: vi.fn().mockResolvedValue([
+    { name: "Julgodis", count: 1 },
+    { name: "Bullar", count: 1 },
+    { name: "Kakor", count: 1 },
+  ]),
   countByCategory: vi
     .fn()
     .mockReturnValue({ Julgodis: 1, Bullar: 1, Kakor: 1 }),
@@ -55,12 +60,12 @@ describe("HomePage integration test", () => {
     );
     //Titles
     expect(await screen.findByText("Knäckkola")).toBeInTheDocument();
-    expect( screen.getByText("Lussebullar")).toBeInTheDocument();
-    expect( screen.getByText("Pepparkakor")).toBeInTheDocument();
-    
+    expect(screen.getByText("Lussebullar")).toBeInTheDocument();
+    expect(screen.getByText("Pepparkakor")).toBeInTheDocument();
+
     //Category list
     expect(await screen.findByText(/Bullar \(1\)/)).toBeInTheDocument();
-    expect( screen.getByText(/Kakor \(1\)/)).toBeInTheDocument();
-    expect( screen.getByText(/Julgodis \(1\)/)).toBeInTheDocument();
+    expect(screen.getByText(/Kakor \(1\)/)).toBeInTheDocument();
+    expect(screen.getByText(/Julgodis \(1\)/)).toBeInTheDocument();
   });
 });
