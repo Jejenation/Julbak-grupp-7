@@ -170,10 +170,10 @@ body {
 }
 
 .recipe-rating {
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
   text-align: left;
-  padding: 20px 0 20px 20px;
-}
+}    
 
 .stars {
   display: inline-block;
@@ -194,10 +194,6 @@ body {
 
 .stars.clickable .star {
   cursor: pointer;
-}
-
-.stars.clickable .star:hover {
-  color: orange;
 }
 
 @media screen and (min-width: 344px) {
@@ -263,4 +259,31 @@ body {
     10% { opacity: 1; transform: translateY(0); }
     90% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-5px); }
+}
+
+.average-rating {
+    margin-top: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px
+}
+
+.average-rating-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 2px;
+}
+
+.average-rating-display .star.filled {
+    font-size: 2rem;
+    color: gold;
+}
+
+.average-rating-display .rating-number {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #3A1E0A;
 }
