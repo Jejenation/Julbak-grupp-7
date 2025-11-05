@@ -13,6 +13,13 @@ vi.mock("../services/recipeService", () => ({
     { _id: "2", title: "Lussebullar", imageUrl: "https://i.imgur.com/wF8ucWV.jpeg", avgRating: 4, price: 2, timeInMins: 120, categories: ["Bullar"] },
     { _id: "3", title: "Pepparkakor", imageUrl: "https://i.imgur.com/nQAhVrt.jpeg", avgRating: 5, price: 3, timeInMins: 30, categories: ["Kakor"] },
   ]),
+
+    getCategoryCountFromRecipes: vi.fn().mockResolvedValue([
+    { name: "Julgodis", count: 2 },
+    { name: "Bullar", count: 1 },
+    { name: "Kakor", count: 1 }
+  ]),
+  
   countByCategory: vi.fn().mockReturnValue({ Julgodis: 2, Bullar: 1, Kakor: 1 }),
   calculateDifficulty: vi.fn((price) => (price === 1 ? "Enkel" : price === 2 ? "Medel" : "Svår")),
 }));
