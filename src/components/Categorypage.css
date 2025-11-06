@@ -24,6 +24,8 @@ h1 {
   min-width: 10rem;
   background-color: #fff2de;
   width: 100%;
+  font-family:var(--font-body);
+
 }
 
 .chosen-page {
