@@ -1,16 +1,17 @@
-# React + Vite
+# Julbak Grupp 7 - Recipe App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Behövs
+- **Node.js** https://nodejs.org/en/download
+- **Git** https://git-scm.com/
 
-Currently, two official plugins are available:
+ni kan testa i er terminal (sök terminal i windows alt. powershell)  
+"git --version"   
+"node --version"  
+för att se om ni har installerat git/node på er dator.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Skapa en mapp i Visual studio code där ni vill spara projektet t.ex. "Grupp7"  
+Högst upp borde ni se en meny med "Terminal", klicka "new terminal"  
+I terminalen skriver ni "git clone https://github.com/Jejenation/Julbak-grupp-7.git"  
+Navigera till projektet med kommandot cd Julbak-grupp-7 i terminalen  
 
-## React Compiler
-
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Installera dependencies med kommandot "npm install" i terminalen (det kan ta några minuter)

@@ -1,0 +1,49 @@
+:root{
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+h3 {
+    font-family:var(--font-heading);
+}
+
+.comment-list {
+    padding: 5px;
+    list-style: none;
+    border: #E8DCC9;
+    font-style: #2E1A07;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cfc3c3;
+    font-family:var(--font-body);
+}
+
+.comment-name-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-date-list {
+    display: flex;
+    justify-content: right;
+    height: auto;
+}
+
+.show-more-button-list {
+    display: block;
+    margin: 15px auto;
+    cursor: pointer;
+    color: #2E1A07;
+    background-color: orange;
+    border: #E8DCC9;
+    border-radius:10px;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 18px;
+    width: 170px;
+}
+
+@media (hover: hover) {
+    .show-more-button-list:hover {
+        background-color:#A62300;
+    }
+}

@@ -1,0 +1,28 @@
+:root {
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+}
+
+h3 {
+  font-family: var(--font-heading);
+}
+.recipe-card {
+  min-width: 10rem;
+  background-color: #fff2de;
+  font-family: var(--font-body);
+  border-radius: 0 0 10px 10px;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.recipe-rating {
+  font-size: 0.95rem;
+  margin: 4px 0;
+  font-family: "Inter", sans-serif;
+}
