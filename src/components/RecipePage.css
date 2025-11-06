@@ -287,3 +287,8 @@ body {
     font-weight: bold;
     color: #3A1E0A;
 }
+@media (hover: hover) {
+    .comment-button:hover {
+        background-color:#A62300;
+    }
+}

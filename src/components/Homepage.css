@@ -1,4 +1,8 @@
-
+:root {
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+}
 .header {
     display: flex;
     justify-content: flex-start;
@@ -6,6 +10,7 @@
     padding: 15px;
     background-color: #FFF9F0;
     gap: 40px;
+    
 }
 
 .logo {
@@ -37,6 +42,7 @@ nav a {
 .category-placeholder > a {
     text-decoration: none;
     color: black;
+    font-family: var(--font-heading);
 }
 
 body {
