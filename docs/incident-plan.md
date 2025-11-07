@@ -27,12 +27,12 @@ Att snabbt identifiera, hantera och rapportera IT-incidenter som påverkar webbs
 
 | Prioritet | Funktion / Person | Kontaktväg | Ansvar |
 |-----------|-----------------|-----------------------------------|--------|
-| 1 | Drift / system | Email: Jacob.erikssonw@gmail.com | Första tekniska åtgärd |
-| 2 | Säkerhet | Email: Olvallronja@gmail.com | Analys, logggranskning |
-| 3 | Utveckling | Email: Martin.paulsen@gmail.com | Webbapplikation och kod |
-| 4 | Kommunikation | Email: Martin.paulsen@gmail.com | Information till användare / press |
-| 5 | Ledning | Email: Olvallronja@gmail.com | Beslutsfattande och rapportering |
-| 🚨 | Vid dataintrång → Meddela Datainspektionen (IMY) inom 72 timmar | Email: imy@imy.se | Lagkrav enligt GDPR |
+| 1 | Drift / system | Jacob.erikssonw@gmail.com | Första tekniska åtgärd |
+| 2 | Säkerhet | Olvallronja@gmail.com | Analys, logggranskning |
+| 3 | Utveckling | Martin.paulsen@gmail.com | Webbapplikation och kod |
+| 4 | Kommunikation | Martin.paulsen@gmail.com | Information till användare / press |
+| 5 | Ledning | Olvallronja@gmail.com | Beslutsfattande och rapportering |
+| 🚨 | Vid dataintrång → Meddela Datainspektionen (IMY) inom 72 timmar | imy@imy.se | Lagkrav enligt GDPR |
 
 ## 5. Dokumentation av IT-incident
 Minst följande ska dokumenteras:  
