@@ -26,7 +26,7 @@ Att snabbt identifiera, hantera och rapportera IT-incidenter som påverkar webbs
 ## 4. Kontaktväg vid IT-incident
 
 | Prioritet | Funktion / Person | Kontaktväg | Ansvar |
-|-----------|-----------------|--------------------------------|--------|
+|-----------|-----------------|-----------------------------------|--------|
 | 1 | Drift / system | Email: Jacob.erikssonw@gmail.com | Första tekniska åtgärd |
 | 2 | Säkerhet | Email: Olvallronja@gmail.com | Analys, logggranskning |
 | 3 | Utveckling | Email: Martin.paulsen@gmail.com | Webbapplikation och kod |
