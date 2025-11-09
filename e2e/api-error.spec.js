@@ -1,10 +1,14 @@
 import { test, expect } from "@playwright/test";
 
+test.beforeEach(async ({ page }) => {
+    await page.unrouteAll();
+});
+
 test('API error shows error message and "Försök igen" button works', async ({
   page,
 }) => {
   await page.route("**/recipes*", (route) => {
-
+      
       route.fulfill({
         status: 500,
         contentType: "application/json",
@@ -37,4 +41,8 @@ test('API error shows error message and "Försök igen" button works', async ({
   await expect(
     page.locator("text=Kunde inte ladda recept..")
   ).not.toBeVisible();
+});
+
+test.afterEach(async ({ page }) => {
+  await page.unrouteAll();
 });
