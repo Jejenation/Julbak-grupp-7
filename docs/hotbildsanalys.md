@@ -30,10 +30,10 @@
 **Problem:** Felaktiga headers (CSP, CORS)
 
 **1. Hur och vart?**
-- När man skickar data över/mellan domäner
+- Uppstår när säkerhetsrelaterade konfigurationer saknas, är felaktiga eller lämnas kvar i standardläge.
 
 **2. Vad händer/konsekvenser?**
-- [Behöver kompletteras]
+- Ökad risk för XSS attacker
 
 **3. Vad kan man göra/åtgärder/förebygga?**
 - Säkra lösenordshantering
