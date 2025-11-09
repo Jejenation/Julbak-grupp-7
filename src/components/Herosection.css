@@ -19,9 +19,8 @@
   border-radius: 25px;
 }
 .hero-search input::placeholder {
-    font-family:var(--font-body);
-    color: #2E1A07;
-
+  font-family: var(--font-body);
+  color: #2e1a07;
 }
 
 .hero-img {
@@ -40,14 +39,12 @@
   background-color: orange;
   border: #e8dcc9;
   border-radius: 10px;
-  font-family:var(--font-body);
-
-
+  font-family: var(--font-body);
 }
 @media (hover: hover) {
-    .search-button:hover {
-        background-color:#A62300;
-    }
+  .search-button:hover {
+    background-color: #a62300;
+  }
 }
 
 /*
