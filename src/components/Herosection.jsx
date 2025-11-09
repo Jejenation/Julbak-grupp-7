@@ -7,6 +7,7 @@ function HeroSection() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
+  //Updates input with search query from the URL
   useEffect(() => {
     const searchQuery = searchParams.get("search");
     if (searchQuery) {
@@ -18,6 +19,7 @@ function HeroSection() {
     setInput(e.target.value);
   };
 
+  //Updates homepage with searchParam and resets if empty
   const performSearch = () => {
     if (input) {
       navigate(`/?search=${input}`);

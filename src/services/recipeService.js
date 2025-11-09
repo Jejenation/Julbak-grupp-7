@@ -27,7 +27,7 @@ export const getComments = async (recipeId) => {
     }
 };
 
-export const getCategoryCountFromRecipes = async () => {
+export const fetchCategories = async () => {
     const res = await fetch(`${API_BASE_URL}/categories`);
     if(!res.ok) throw new Error('Failed to fetch categories');
     return res.json();

@@ -2,7 +2,7 @@ import RecipeList from "./RecipeList";
 import HeroSection from "./Herosection";
 import "./Homepage.css";
 import { useEffect, useState } from "react";
-import { getCategoryCountFromRecipes } from "../services/recipeService";
+import { fetchCategories } from "../services/recipeService";
 import { NavLink, Link, useSearchParams } from "react-router-dom";
 
 function Homepage() {
@@ -13,16 +13,17 @@ function Homepage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchCategories = () => {
+  //Fetch category count from API and updates state
+  const loadCategory = () => {
     setLoading(true);
     setError(null);
 
-    getCategoryCountFromRecipes()
+    fetchCategories()
       .then((data) => {
         const count = {};
-        data.forEach(cat => {
-          count[cat.name] = cat.count
-        })
+        data.forEach((cat) => {
+          count[cat.name] = cat.count;
+        });
         setCategoryCount(count);
         setError(null);
       })
@@ -34,16 +35,19 @@ function Homepage() {
         setLoading(false);
       });
   };
+
+  //Runs once on initial load
   useEffect(() => {
-    fetchCategories();
+    loadCategory();
   }, []);
 
+  //Loads if API call fails
   const renderCategories = () => {
     if (error) {
       return (
         <div className="error-container">
           <p className="error-msg">{error}</p>
-          <button onClick={fetchCategories} className="retry-btn">
+          <button onClick={loadCategory} className="retry-btn">
             Försök igen
           </button>
         </div>
@@ -55,7 +59,7 @@ function Homepage() {
     }
 
     return (
-      <div className="category-placeholder">
+      <div className="homepage-category-titles">
         <Link to="/categories/bullar">
           <h2>Bullar ({categoryCount?.Bullar || 0})</h2>
         </Link>
@@ -80,14 +84,12 @@ function Homepage() {
         </nav>
       </header>
 
-      {/*Hero section here */}
       <div className="hero-section">
         <HeroSection />
       </div>
 
       {renderCategories()}
 
-      {/* change for recipe cards*/}
       <RecipeList searchQuery={searchQuery} />
     </div>
   );
