@@ -14,7 +14,7 @@ vi.mock("../services/recipeService", () => ({
     { _id: "3", title: "Pepparkakor", imageUrl: "https://i.imgur.com/nQAhVrt.jpeg", avgRating: 5, price: 3, timeInMins: 30, categories: ["Kakor"] },
   ]),
 
-    getCategoryCountFromRecipes: vi.fn().mockResolvedValue([
+    fetchCategories: vi.fn().mockResolvedValue([
     { name: "Julgodis", count: 2 },
     { name: "Bullar", count: 1 },
     { name: "Kakor", count: 1 }

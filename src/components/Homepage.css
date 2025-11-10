@@ -4,80 +4,79 @@
     sans-serif;
 }
 .header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 15px;
-    background-color: #FFF9F0;
-    gap: 40px;
-    
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff9f0;
+  gap: 40px;
 }
 
 .logo {
-    color: #3A1E0A;
-    font-weight: bold;
-    font-size: 30px;
+  color: #3a1e0a;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 nav {
-    display: flex;
-    justify-content: flex-start;
-    padding: 10px;
-    gap: 40px;
-    font-size: 20px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+  gap: 40px;
+  font-size: 20px;
 }
 nav a {
-    text-decoration: none;
-    color: #333;
+  text-decoration: none;
+  color: #333;
 }
 
 .search {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: auto;
 }
 
-.category-placeholder > a {
-    text-decoration: none;
-    color: black;
-    font-family: var(--font-heading);
+.homepage-category-titles > a {
+  text-decoration: none;
+  color: black;
+  font-family: var(--font-heading);
 }
 
 body {
-    background-color: #FFF9F0;
+  background-color: #fff9f0;
 }
 
-@media screen and (min-width:300px) {
-    .category-placeholder {
-        display: flex;
-        justify-content: space-around;
-    }
-    .category-placeholder > a > h2 {
-        font-size: medium;
-    }
+@media screen and (min-width: 300px) {
+  .homepage-category-titles {
+    display: flex;
+    justify-content: space-around;
+  }
+  .homepage-category-titles > a > h2 {
+    font-size: medium;
+  }
 }
 
 @media screen and (max-width: 360px) {
-    nav {
-        padding-left: 0;
-        gap: 1.5rem;
-    }
+  nav {
+    padding-left: 0;
+    gap: 1.5rem;
+  }
 }
 
 @media screen and (min-width: 375px) {
-    .category-placeholder {
-        display: flex;
-        justify-content: space-around;
-    }
-    .category-placeholder > a > h2 {
-        font-size: large;
-    }
+  .homepage-category-titles {
+    display: flex;
+    justify-content: space-around;
+  }
+  .homepage-category-titles > a > h2 {
+    font-size: large;
+  }
 }
 
 @media screen and (min-width: 667px) {
-    .category-placeholder > a > h2 {
-        font-size: x-large;
-    }
+  .homepage-category-titles > a > h2 {
+    font-size: x-large;
+  }
 }

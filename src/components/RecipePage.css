@@ -55,46 +55,49 @@
 }
 
 .recipe-left {
-    flex: 1;
-    text-align: center;
-} 
+  flex: 1;
+  text-align: center;
+}
 
 .recipe-image {
-    width: 100%;
-    max-width: 350px;
-    border-radius: 10px;
-    object-fit: cover;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .recipe-right {
-    flex: 1;
+  flex: 1;
 }
 
 .recipe-title {
-    font-size: 28px;
-    margin-bottom: 10px;
-    font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-family: "Playfair Display", serif;
 }
 
 .recipe-right p {
-    margin: 8px 0;
-    font-size: 16px;
+  margin: 8px 0;
+  font-size: 16px;
 }
 
-.ingredients h3, .instructions h3 {
-    font-family: 'Playfair Display', serif;
-    color: #3A1E0A;
-    margin-bottom: 10px;
+.ingredients h3,
+.instructions h3 {
+  font-family: "Playfair Display", serif;
+  color: #3a1e0a;
+  margin-bottom: 10px;
 }
 
-.ingredients ul, .instructions ol {
-    margin: 0;
-    padding-left: 20px;
-} 
+.ingredients ul,
+.instructions ol {
+  margin: 0;
+  padding-left: 20px;
+}
 
-.ingredients li, .instructions li {
-    margin-bottom: 6px;
-    font-size: 15px;
+.ingredients li,
+.instructions li {
+  margin-bottom: 6px;
+  font-size: 15px;
 }
 
 body {
@@ -102,11 +105,11 @@ body {
 }
 
 .comment-section {
-    margin-top: 30px;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
-    padding-left: 20px;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  padding-left: 20px;
 }
 
 .comment-section h3 {
@@ -116,17 +119,17 @@ body {
 }
 
 .comment-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .comment-name {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 8px;
-    font-size: 15px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 15px;
 }
 
 .comment-box {
@@ -152,28 +155,28 @@ body {
 
 .comment-name:disabled,
 .comment-box:disabled {
-    background-color: #f0f0f0;
-    color: #333;
-    cursor: not-allowed;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: not-allowed;
 }
 
 .comment-button:disabled {
-    background-color: #d3d3d3;
-    color: #333;
-    cursor: not-allowed;
+  background-color: #d3d3d3;
+  color: #333;
+  cursor: not-allowed;
 }
 
 .rating-message {
-    color: #3A1E0A;
-    font-weight: bold;
-    margin-top: 10px;
+  color: #3a1e0a;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 .recipe-rating {
   display: flex;
   flex-direction: column;
   text-align: left;
-}    
+}
 
 .stars {
   display: inline-block;
@@ -200,7 +203,6 @@ body {
   .recipe-image {
     width: 100%;
   }
-  
 }
 
 @media screen and (min-width: 650px) {
@@ -230,65 +232,77 @@ body {
 }
 
 .header-with-categories nav a.active {
-    color: orange;
-    font-weight: bold;
-    text-decoration: none;
+  color: orange;
+  font-weight: bold;
+  text-decoration: none;
 }
 .error {
-    border: 2px solid red !important;
-    background-color: #FFF9F0;
+  border: 2px solid red !important;
+  background-color: #fff9f0;
 }
 
 .popup-message {
-    padding: 10px 15px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-align: center;
-    animation: fadeInOut 5s forwards;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeInOut 5s forwards;
 }
 
 .popup-message.error {
-    background-color: #ffebeb;
-    color: #b30000;
-    border: 1px solid #ff0000;
+  background-color: #ffebeb;
+  color: #b30000;
+  border: 1px solid #ff0000;
 }
 
 @keyframes fadeInOut {
-    0% { opacity: 0; transform: translateY(-5px); }
-    10% { opacity: 1; transform: translateY(0); }
-    90% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-5px); }
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
 }
 
 .average-rating {
-    margin-top: 10px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 6px
+  margin-top: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .average-rating-display {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 2px;
 }
 
 .average-rating-display .star.filled {
-    font-size: 2rem;
-    color: gold;
+  font-size: 2rem;
+  color: gold;
 }
 
 .average-rating-display .rating-number {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #3A1E0A;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #3a1e0a;
 }
 @media (hover: hover) {
-    .comment-button:hover {
-        background-color:#A62300;
-    }
+  .comment-button:hover {
+    background-color: #a62300;
+  }
 }

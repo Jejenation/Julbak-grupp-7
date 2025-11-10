@@ -8,7 +8,8 @@ function RecipeList({ searchQuery = "" }) {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const fetchRecipes = () => {
+  //Fetch recipes from API and updates State
+  const loadRecipes = () => {
     setLoading(true);
     setError(null);
 
@@ -26,10 +27,12 @@ function RecipeList({ searchQuery = "" }) {
       });
   };
 
+  //Loads recipes when the component mounts
   useEffect(() => {
-    fetchRecipes();
+    loadRecipes();
   }, []);
 
+  //Apply search filter when user enters search query
   const displayedRecipes = searchQuery
     ? filterRecipes(recipes, searchQuery)
     : recipes;
@@ -38,7 +41,7 @@ function RecipeList({ searchQuery = "" }) {
     return (
       <div className="error-container">
         <p className="error-msg">{error}</p>
-        <button onClick={fetchRecipes} className="retry-btn">
+        <button onClick={loadRecipes} className="retry-btn">
           Försök igen
         </button>
       </div>
